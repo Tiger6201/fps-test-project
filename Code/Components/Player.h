@@ -110,6 +110,9 @@ public:
 	void OnReadyForGameplayOnServer();
 	bool IsLocalClient() const { return (m_pEntity->GetFlags() & ENTITY_FLAG_LOCAL_PLAYER) != 0; }
 
+	void aimpose();
+	Vec3 getAimTarget();
+
 protected:
 	void Revive(const Matrix34& transform);
 
@@ -122,6 +125,11 @@ protected:
 
 	// Called when this entity becomes the local player, to create client specific setup such as the Camera
 	void InitializeLocalPlayer();
+
+	ISkeletonAnim* SkeletonAnim;
+	ISkeletonPose* SkeletonPose;
+	IAnimationPoseBlenderDir* pPoseBlenderAim;
+	Vec3 m_targetAimpose{ 0, 0, 0 };
 	
 	// Start remote method declarations
 protected:

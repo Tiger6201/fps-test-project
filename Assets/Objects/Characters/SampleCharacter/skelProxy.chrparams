@@ -7,4 +7,18 @@
   <Animation name="*" path="*/*.bspace"/>
   <Animation name="*" path="*/*.comb"/>
  </AnimationList>
+      <IK_Definition>
+        <AimIK_Definition>
+            <DirectionalBlends>
+                <Joint AnimToken="aimpose" ParameterJoint="ParameterJoint" StartJoint="StartJoint" ReferenceJoint="ReferenceJoint"/>
+            </DirectionalBlends>
+            <RotationList>
+				<Rotation Additive="1" Primary="1" JointName="spine01"/>
+				<Rotation Additive="1" Primary="1" JointName="spine02"/>
+				<Rotation Additive="0" Primary="1" JointName="ParameterJoint"/>
+            </RotationList>
+            <PositionList>
+            </PositionList>
+        </AimIK_Definition>
+    </IK_Definition>
 </Params>

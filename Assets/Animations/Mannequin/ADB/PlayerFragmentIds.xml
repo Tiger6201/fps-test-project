@@ -2,5 +2,7 @@
  <Tags>
   <Tag name="Idle"/>
   <Tag name="Walk" subTagDef="Animations/Mannequin/ADB/PlayerTags.xml"/>
+  <Tag name="IdleNoGun"/>
+  <Tag name="WalkNoGun" subTagDef="Animations/Mannequin/ADB/PlayerTags.xml"/>
  </Tags>
 </TagDefinition>

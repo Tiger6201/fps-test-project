@@ -41,7 +41,7 @@ void CPlayerComponent::Initialize()
 	m_pAnimationComponent->SetControllerDefinitionFile("Animations/Mannequin/ADB/FirstPersonControllerDefinition.xml");
 	m_pAnimationComponent->SetDefaultScopeContextName("FirstPersonCharacter");
 	// Queue the idle fragment to start playing immediately on next update
-	m_pAnimationComponent->SetDefaultFragmentName("Idle");
+	m_pAnimationComponent->SetDefaultFragmentName("IdleNoGun");
 
 	// Disable movement coming from the animation (root joint offset), we control this entirely via physics
 	m_pAnimationComponent->SetAnimationDrivenMotion(true);
@@ -50,9 +50,13 @@ void CPlayerComponent::Initialize()
 	m_pAnimationComponent->LoadFromDisk();
 
 	// Acquire fragment and tag identifiers to avoid doing so each update
-	m_idleFragmentId = m_pAnimationComponent->GetFragmentId("Idle");
-	m_walkFragmentId = m_pAnimationComponent->GetFragmentId("Walk");
+	m_idleFragmentId = m_pAnimationComponent->GetFragmentId("IdleNoGun");
+	m_walkFragmentId = m_pAnimationComponent->GetFragmentId("WalkNoGun");
 	m_rotateTagId = m_pAnimationComponent->GetTagId("Rotate");
+
+	SkeletonPose = m_pAnimationComponent->GetCharacter()->GetISkeletonPose();
+	SkeletonAnim = m_pAnimationComponent->GetCharacter()->GetISkeletonAnim();
+	pPoseBlenderAim = SkeletonPose->GetIPoseBlenderAim();
 
 	// Mark the entity to be replicated over the network
 	m_pEntity->GetNetEntity()->BindToNetwork();
@@ -183,7 +187,7 @@ void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
 
 bool CPlayerComponent::NetSerialize(TSerialize ser, EEntityAspects aspect, uint8 profile, int flags)
 {
-	if(aspect == InputAspect)
+	//if(aspect == InputAspect) I removed it because I need to figuring out how to handle several EEntityAspects
 	{
 		ser.BeginGroup("PlayerInput");
 
@@ -210,6 +214,9 @@ bool CPlayerComponent::NetSerialize(TSerialize ser, EEntityAspects aspect, uint8
 
 		// Serialize the player look orientation
 		ser.Value("m_lookOrientation", m_lookOrientation, 'ori3');
+		ser.Value("m_targetAimpose", m_targetAimpose, 'wrld');
+		ser.Value("m_horizontalAngularVelocity", m_horizontalAngularVelocity, 'frad');
+		//ser.Value("m_averagedHorizontalAngularVelocity", m_averagedHorizontalAngularVelocity.Get(), 'wrld');
 
 		ser.EndGroup();
 	}
@@ -257,6 +264,7 @@ void CPlayerComponent::UpdateLookDirectionRequest(float frameTime)
 	m_mouseDeltaRotation = m_mouseDeltaSmoothingFilter.Push(m_mouseDeltaRotation).Get();
 
 	// Update angular velocity metrics
+
 	m_horizontalAngularVelocity = (m_mouseDeltaRotation.x * rotationSpeed) / frameTime;
 	m_averagedHorizontalAngularVelocity.Push(m_horizontalAngularVelocity);
 
@@ -295,7 +303,7 @@ void CPlayerComponent::UpdateAnimation(float frameTime)
 		// if we introduced IK look/aim setup to the character's model and decoupled entity's orientation from the look direction derived from mouse input.
 
 		const float turnDuration = 1.0f; // Expect the turning motion to take approximately one second.
-		m_pAnimationComponent->SetMotionParameter(eMotionParamID_TurnAngle, m_horizontalAngularVelocity * turnDuration);
+		//m_pAnimationComponent->SetMotionParameter(eMotionParamID_TurnAngle, m_horizontalAngularVelocity * turnDuration);
 	}
 
 	// Update active fragment
@@ -315,6 +323,9 @@ void CPlayerComponent::UpdateAnimation(float frameTime)
 
 	// Send updated transform to the entity, only orientation changes
 	GetEntity()->SetPosRotScale(GetEntity()->GetWorldPos(), correctedOrientation, Vec3(1, 1, 1));
+
+	//update the aimpose
+	aimpose();
 }
 
 void CPlayerComponent::UpdateCamera(float frameTime)
@@ -463,4 +474,47 @@ void CPlayerComponent::HandleInputFlagChange(const CEnumFlags<EInputFlag> flags,
 	{
 		NetMarkAspectsDirty(InputAspect);
 	}
+}
+
+void CPlayerComponent::aimpose() {
+
+	if (IsLocalClient())
+	{
+		m_targetAimpose = getAimTarget();
+	}
+
+	if (pPoseBlenderAim)
+	{
+		pPoseBlenderAim->SetLayer(1);
+		pPoseBlenderAim->SetState(1);
+		pPoseBlenderAim->SetTarget(m_targetAimpose);
+		//pPoseBlenderAim->SetPolarCoordinatesOffset({ -0.53,  0.13 });
+		pPoseBlenderAim->SetFadeInSpeed(0);
+		pPoseBlenderAim->SetFadeOutSpeed(0);
+	}
+
+}
+
+Vec3 CPlayerComponent::getAimTarget()
+{
+	const float halfRenderWidth = static_cast<float>(gEnv->pRenderer->GetWidth()) * 0.5f;
+	const float halfRenderHeight = static_cast<float>(gEnv->pRenderer->GetHeight()) * 0.5f;
+
+	const float searchRange = 50.f;
+
+	Vec3 cameraCenterNear, cameraCenterFar;
+	gEnv->pRenderer->UnProjectFromScreen(halfRenderWidth, halfRenderHeight, 0, &cameraCenterNear.x, &cameraCenterNear.y, &cameraCenterNear.z);
+	gEnv->pRenderer->UnProjectFromScreen(halfRenderWidth, halfRenderHeight, 1, &cameraCenterFar.x, &cameraCenterFar.y, &cameraCenterFar.z);
+
+	const Vec3 searchDirection = (cameraCenterFar - cameraCenterNear).GetNormalized() * searchRange;
+
+	std::array<ray_hit, 1> hits;
+
+	const uint32 queryFlags = ent_all;
+
+	const uint32 rayFlags = rwi_stop_at_pierceable | rwi_ignore_noncolliding;
+
+	const int numHits = gEnv->pPhysicalWorld->RayWorldIntersection(cameraCenterNear, searchDirection, queryFlags, rayFlags, hits.data(), hits.max_size());
+
+	return hits[0].pt;
 }

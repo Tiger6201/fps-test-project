@@ -3,3 +3,7 @@ solutions
 Editor/ResourceCache
 logbackups
 bin
+Editor/*
+error.log
+game.log
+editor.log
