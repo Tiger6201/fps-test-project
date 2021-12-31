@@ -1,4 +1,5 @@
-user*
+user/
 solutions
 Editor/ResourceCache
 logbackups
+bin
