@@ -36,7 +36,14 @@ void CPlayerComponent::Initialize()
 
 	// Set the player geometry, this also triggers physics proxy creation
 	m_pAnimationComponent->SetMannequinAnimationDatabaseFile("Animations/Mannequin/ADB/FirstPerson.adb");
-	m_pAnimationComponent->SetCharacterFile("Objects/Characters/SampleCharacter/firstperson.cdf");
+
+	if (IsLocalClient())
+	{
+		m_pAnimationComponent->SetCharacterFile("Objects/Characters/SampleCharacter/firstperson.cdf");
+	}
+	else{
+		m_pAnimationComponent->SetCharacterFile("Objects/Characters/SampleCharacter/thirdperson.cdf");
+	}
 
 	m_pAnimationComponent->SetControllerDefinitionFile("Animations/Mannequin/ADB/FirstPersonControllerDefinition.xml");
 	m_pAnimationComponent->SetDefaultScopeContextName("FirstPersonCharacter");
@@ -69,7 +76,7 @@ void CPlayerComponent::InitializeLocalPlayer()
 {
 	// Create the camera component, will automatically update the viewport every frame
 	m_pCameraComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CCameraComponent>();
-
+	m_pCameraComponent->SetNearPlane(0.01f);
 	// Create the audio listener component.
 	m_pAudioListenerComponent = m_pEntity->GetOrCreateComponent<Cry::Audio::DefaultComponents::CListenerComponent>();
 
@@ -216,7 +223,7 @@ bool CPlayerComponent::NetSerialize(TSerialize ser, EEntityAspects aspect, uint8
 		ser.Value("m_lookOrientation", m_lookOrientation, 'ori3');
 		ser.Value("m_targetAimpose", m_targetAimpose, 'wrld');
 		ser.Value("m_horizontalAngularVelocity", m_horizontalAngularVelocity, 'frad');
-		//ser.Value("m_averagedHorizontalAngularVelocity", m_averagedHorizontalAngularVelocity.Get(), 'wrld');
+		ser.Value("m_averagedHorizontalAngularVelocity", m_averagedHorizontalAngularVelocity, 'frad');
 
 		ser.EndGroup();
 	}
@@ -257,19 +264,23 @@ void CPlayerComponent::UpdateMovementRequest(float frameTime)
 void CPlayerComponent::UpdateLookDirectionRequest(float frameTime)
 {
 	const float rotationSpeed = 0.002f;
-	const float rotationLimitsMinPitch = -0.84f;
+	const float rotationLimitsMinPitch = -1.10f;
 	const float rotationLimitsMaxPitch = 1.5f;
 
 	// Apply smoothing filter to the mouse input
 	m_mouseDeltaRotation = m_mouseDeltaSmoothingFilter.Push(m_mouseDeltaRotation).Get();
 
 	// Update angular velocity metrics
+	if (IsLocalClient())
+	{
+		m_horizontalAngularVelocity = (m_mouseDeltaRotation.x * rotationSpeed) / frameTime;
+		m_averagedHorizontalAngularVelocity = m_horizontalAngularVelocity;
+		//m_averagedHorizontalAngularVelocity.Push(m_horizontalAngularVelocity);
 
-	m_horizontalAngularVelocity = (m_mouseDeltaRotation.x * rotationSpeed) / frameTime;
-	m_averagedHorizontalAngularVelocity.Push(m_horizontalAngularVelocity);
+		if (m_mouseDeltaRotation.IsEquivalent(ZERO, MOUSE_DELTA_TRESHOLD))
+			return;
 
-	if (m_mouseDeltaRotation.IsEquivalent(ZERO, MOUSE_DELTA_TRESHOLD))
-		return;
+
 
 	// Start with updating look orientation from the latest input
 	Ang3 ypr = CCamera::CreateAnglesYPR(Matrix33(m_lookOrientation));
@@ -288,6 +299,7 @@ void CPlayerComponent::UpdateLookDirectionRequest(float frameTime)
 
 	// Reset the mouse delta accumulator every frame
 	m_mouseDeltaRotation = ZERO;
+	}
 }
 
 void CPlayerComponent::UpdateAnimation(float frameTime)
@@ -295,7 +307,7 @@ void CPlayerComponent::UpdateAnimation(float frameTime)
 	const float angularVelocityTurningThreshold = 0.174; // [rad/s]
 
 	// Update tags and motion parameters used for turning
-	const bool isTurning = std::abs(m_averagedHorizontalAngularVelocity.Get()) > angularVelocityTurningThreshold;
+	const bool isTurning = std::abs(m_averagedHorizontalAngularVelocity) > angularVelocityTurningThreshold;
 	m_pAnimationComponent->SetTagWithId(m_rotateTagId, isTurning);
 	if (isTurning)
 	{
@@ -303,7 +315,7 @@ void CPlayerComponent::UpdateAnimation(float frameTime)
 		// if we introduced IK look/aim setup to the character's model and decoupled entity's orientation from the look direction derived from mouse input.
 
 		const float turnDuration = 1.0f; // Expect the turning motion to take approximately one second.
-		//m_pAnimationComponent->SetMotionParameter(eMotionParamID_TurnAngle, m_horizontalAngularVelocity * turnDuration);
+		m_pAnimationComponent->SetMotionParameter(eMotionParamID_TurnAngle, m_horizontalAngularVelocity * turnDuration);
 	}
 
 	// Update active fragment
@@ -335,7 +347,7 @@ void CPlayerComponent::UpdateCamera(float frameTime)
 
 	ypr.x += m_mouseDeltaRotation.x * m_rotationSpeed;
 
-	const float rotationLimitsMinPitch = -0.84f;
+	const float rotationLimitsMinPitch = -1.10f;
 	const float rotationLimitsMaxPitch = 1.5f;
 
 	// TODO: Perform soft clamp here instead of hard wall, should reduce rot speed in this direction when close to limit.
@@ -355,7 +367,7 @@ void CPlayerComponent::UpdateCamera(float frameTime)
 	Matrix34 localTransform = IDENTITY;
 	localTransform.SetRotation33(CCamera::CreateOrientationYPR(ypr));
 
-	const float viewOffsetForward = 0.01f;
+	const float viewOffsetForward = 0.05f;
 	const float viewOffsetUp = 0.26f;
 
 	if (ICharacterInstance *pCharacter = m_pAnimationComponent->GetCharacter())
@@ -434,7 +446,7 @@ void CPlayerComponent::Revive(const Matrix34& transform)
 	m_activeFragmentId = FRAGMENT_ID_INVALID;
 
 	m_horizontalAngularVelocity = 0.0f;
-	m_averagedHorizontalAngularVelocity.Reset();
+	m_averagedHorizontalAngularVelocity = 0.0f;
 
 	if (ICharacterInstance *pCharacter = m_pAnimationComponent->GetCharacter())
 	{

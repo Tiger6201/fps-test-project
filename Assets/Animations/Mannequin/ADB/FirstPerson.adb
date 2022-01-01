@@ -40,6 +40,10 @@
      <Blend ExitTime="0" StartTime="0" Duration="0.2"/>
      <Animation name="1DONE-BSpace_Rotate" flags="Loop"/>
     </AnimLayer>
+    <AnimLayer>
+     <Blend ExitTime="0" StartTime="0" Duration="0.2"/>
+     <Animation name="aimpose_01" flags="Loop+ForceSkelUpdate"/>
+    </AnimLayer>
    </Fragment>
    <Fragment BlendOutDuration="0.2" Tags="">
     <AnimLayer>
