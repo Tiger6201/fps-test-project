@@ -1,4 +1,4 @@
-<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="">
+<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1641047820">
  <Files>
   <File path="example/example.level"/>
  </Files>
@@ -15,24 +15,19 @@
   <Path>%engine%/engineassets/materials/fog/oceanintolowspec.mtl</Path>
   <Path>%engine%/engineassets/materials/fog/oceanoutof.mtl</Path>
   <Path>%engine%/engineassets/materials/fog/oceanoutoflowspec.mtl</Path>
+  <Path>%engine%/engineassets/materials/lens_optics.mtl</Path>
   <Path>%engine%/engineassets/materials/material_default.mtl</Path>
   <Path>%engine%/engineassets/materials/material_terrain_default.mtl</Path>
   <Path>%engine%/engineassets/materials/water/wateroceanbottom.mtl</Path>
-  <Path>%engine%/engineassets/objects/editorprimitive.mtl</Path>
   <Path>%engine%/engineassets/objects/primitive_cube.cgf</Path>
-  <Path>%engine%/engineassets/objects/primitive_sphere.cgf</Path>
   <Path>%engine%/engineassets/texturemsg/defaultnouvs.dds</Path>
   <Path>%engine%/engineassets/texturemsg/defaultsolids.mtl</Path>
-  <Path>%engine%/engineassets/textures/defaults/16_12.dds</Path>
-  <Path>%engine%/engineassets/textures/defaults/16_34.dds</Path>
-  <Path>%engine%/engineassets/textures/defaults/16_5.dds</Path>
-  <Path>%engine%/engineassets/textures/defaults/16_grey.dds</Path>
-  <Path>%engine%/engineassets/textures/perlinnoisederivatives.dds</Path>
-  <Path>%engine%/engineassets/textures/water_droplets.dds</Path>
+  <Path>%engine%/engineassets/textures/skys/night/half_moon.dds</Path>
   <Path>%engine%/engineassets/textures/white.dds</Path>
   <Path>animations/mannequin/adb/firstpersoncontrollerdefinition.xml</Path>
   <Path>animations/mannequin/adb/playerfragmentids.xml</Path>
   <Path>animations/mannequin/adb/playertags.xml</Path>
+  <Path>animations/motusanims/aimpose/aimpose_01.caf</Path>
   <Path>animations/motusanims/ide2move/idle_to_jog_3p.caf</Path>
   <Path>animations/motusanims/ide2move/idle_to_run_3p.caf</Path>
   <Path>animations/motusanims/ide2move/idle_to_walk_3p.caf</Path>
@@ -86,29 +81,34 @@
   <Path>animations/motusanims/turns/walkturn_rgt_3p.caf</Path>
   <Path>animations/motusanims/walk_bck_3p.caf</Path>
   <Path>animations/motusanims/walk_fwd_3p.caf</Path>
-  <Path>e:/wsp/ce/main_stabilisation/code/gametemplates/cpp/firstpersonshooter/assets/levels/example/filelist.xml</Path>
-  <Path>engineassets/materials/sky/sky.mtl</Path>
   <Path>engineassets/materials/water/ocean_default.mtl</Path>
-  <Path>engineassets/texturemsg/defaultnouvs.dds</Path>
-  <Path>engineassets/textures/grey.dds</Path>
-  <Path>engineassets/textures/skys/night/half_moon.dds</Path>
-  <Path>engineassets/textures/white.dds</Path>
-  <Path>libs/environmentpresets/example.xml</Path>
-  <Path>materials/bullet.mtl</Path>
-  <Path>materials/terrain.mtl</Path>
+  <Path>engineassets/textures/flares/default-flare.dds</Path>
+  <Path usageCount="1">libs/environmentpresets/example.env</Path>
+  <Path>libs/flares/sample_flares.xml</Path>
+  <Path>libs/flares/sample_flares.xml</Path>
   <Path>objects/characters/samplecharacter/firstperson.cdf</Path>
   <Path>objects/characters/samplecharacter/mcg_ddna.dds</Path>
   <Path>objects/characters/samplecharacter/mcg_diff.dds</Path>
   <Path>objects/characters/samplecharacter/mcg_spec.dds</Path>
   <Path>objects/characters/samplecharacter/motusbodyheadless.skin</Path>
-  <Path>objects/characters/samplecharacter/motusbodymat.mtl</Path>
   <Path>objects/characters/samplecharacter/skelproxy.chr</Path>
-  <Path>objects/default/editorprimitive.mtl</Path>
-  <Path>objects/default/primitive_sphere.cgf</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.cgf</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.mtl</Path>
-  <Path>scripts/ai/factions.xml</Path>
   <Path>textures/cubemaps/example/environmentprobe1_cm.dds</Path>
   <Path>textures/cubemaps/example/environmentprobe1_cm_diff.dds</Path>
+  <Path>textures/lights/lens_flares/circular_bokeh_blurry.dds</Path>
+  <Path>textures/lights/lens_flares/element_smoke.dds</Path>
+  <Path>textures/lights/lens_flares/ghost_a_grey.dds</Path>
+  <Path>textures/lights/lens_flares/ghost_a_multicolor.dds</Path>
+  <Path>textures/lights/lens_flares/iris_shaft.dds</Path>
+  <Path>textures/lights/lens_flares/lens_flare1.dds</Path>
+  <Path>textures/lights/lens_flares/orb_color4.dds</Path>
+  <Path>textures/lights/lens_flares/orb_color5.dds</Path>
+  <Path>textures/lights/lens_flares/orbs_blurred.dds</Path>
+  <Path>textures/lights/lens_flares/orbs_lines2.dds</Path>
+  <Path>textures/lights/lens_flares/orbs_round1.dds</Path>
+  <Path>textures/lights/lens_flares/orbs_round2.dds</Path>
+  <Path>textures/lights/lens_flares/orbs_thin_lines.dds</Path>
+  <Path>textures/lights/lens_flares/visor_scratch.dds</Path>
  </Dependencies>
 </AssetMetadata>
