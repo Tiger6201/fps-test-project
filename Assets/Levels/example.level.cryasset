@@ -1,4 +1,4 @@
-<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1641047820">
+<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1641135920">
  <Files>
   <File path="example/example.level"/>
  </Files>
@@ -20,8 +20,10 @@
   <Path>%engine%/engineassets/materials/material_terrain_default.mtl</Path>
   <Path>%engine%/engineassets/materials/water/wateroceanbottom.mtl</Path>
   <Path>%engine%/engineassets/objects/primitive_cube.cgf</Path>
+  <Path>%engine%/engineassets/objects/primitive_sphere.cgf</Path>
   <Path>%engine%/engineassets/texturemsg/defaultnouvs.dds</Path>
   <Path>%engine%/engineassets/texturemsg/defaultsolids.mtl</Path>
+  <Path>%engine%/engineassets/textures/lights/softedge.dds</Path>
   <Path>%engine%/engineassets/textures/skys/night/half_moon.dds</Path>
   <Path>%engine%/engineassets/textures/white.dds</Path>
   <Path>animations/mannequin/adb/firstpersoncontrollerdefinition.xml</Path>
@@ -81,16 +83,19 @@
   <Path>animations/motusanims/turns/walkturn_rgt_3p.caf</Path>
   <Path>animations/motusanims/walk_bck_3p.caf</Path>
   <Path>animations/motusanims/walk_fwd_3p.caf</Path>
+  <Path>editor/resourcecache/objects/characters/samplecharacter/mcg_ddna.dds</Path>
+  <Path>editor/resourcecache/objects/characters/samplecharacter/mcg_diff.dds</Path>
+  <Path>editor/resourcecache/objects/characters/samplecharacter/mcg_spec.dds</Path>
   <Path>engineassets/materials/water/ocean_default.mtl</Path>
   <Path>engineassets/textures/flares/default-flare.dds</Path>
   <Path usageCount="1">libs/environmentpresets/example.env</Path>
-  <Path>libs/flares/sample_flares.xml</Path>
   <Path>libs/flares/sample_flares.xml</Path>
   <Path>objects/characters/samplecharacter/firstperson.cdf</Path>
   <Path>objects/characters/samplecharacter/mcg_ddna.dds</Path>
   <Path>objects/characters/samplecharacter/mcg_diff.dds</Path>
   <Path>objects/characters/samplecharacter/mcg_spec.dds</Path>
   <Path>objects/characters/samplecharacter/motusbodyheadless.skin</Path>
+  <Path>objects/characters/samplecharacter/motusbodymat.mtl</Path>
   <Path>objects/characters/samplecharacter/skelproxy.chr</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.cgf</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.mtl</Path>

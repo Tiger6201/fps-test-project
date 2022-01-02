@@ -1,6 +1,6 @@
 <Level WaterColor="16711680" SandboxVersion="5.6.7.94">
- <View ViewerPos="77.469864,57.320076,33.872883" ViewerAngles="-0.089199923,-0,2.7516019"/>
- <Fog Fog="" Terrain="" EnvState="" VolFogShadows="" VolumetricCloud="" SkyBox="" Ocean="" OceanAnimation="" DynTexSource=""/>
+ <View ViewerPos="70.531898,51.482273,33.906548" ViewerAngles="-0.39179966,-0,0.58740008"/>
+ <Fog Fog="" Terrain="" EnvState="" VolFogShadows="" VolumetricCloud="" Ocean="" OceanAnimation="" DynTexSource=""/>
  <Missions Current="Mission0">
   <Mission Name="Mission0" Description="" PlayerEquipPack="" Script="" MissionTime="12:00">
    <ObjectLayers LayerVersion="2" Current="Main" CurrentGUID="1dd3a559-e494-4742-a501-7dab4afbbf72"/>
@@ -36,7 +36,7 @@
       <Sensor Sensorimagesizevariationfactor="0" Sensorimagebrightnessvariationfactor="0"/>
       <Transformation Scale="1,1" Translation="0,0" Rotation="0"/>
       <Dynamics Enable="0" TriggerInvert="0" TriggerOffset="0,0" TriggerRange="1" TriggerFalloff="1"/>
-      <IrisShafts Enablegradienttex="0" BaseTex="" GradientTex="" Noiseseed="81" Complexity="32" Smoothness="2" Thickness="0.3" Thicknessnoise="0.6" Spread="0.2" Spreadnoise="0" Sizenoise="0.8" Spacingnoise="0.2"/>
+      <IrisShafts Enablegradienttex="0" BaseTex="" GradientTex="" Noiseseed="81" Complexity="32" Smoothness="2" Thickness="0.3" Thicknessnoise="0" Spread="0.2" Spreadnoise="0" Sizenoise="0.8" Spacingnoise="0.2"/>
      </Params>
     </FlareItem>
    </FlareItem>

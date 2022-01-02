@@ -30,6 +30,8 @@ add_sources("Components_uber.cpp"
 		"Components/Bullet.h"
 		"Components/Player.h"
 		"Components/SpawnPoint.h"
+        "Components/Flashlight.h"
+        "Components/Flashlight.cpp"
 )
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/CVarOverrides.h")

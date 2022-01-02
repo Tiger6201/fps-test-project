@@ -33,7 +33,7 @@ void CPlayerComponent::Initialize()
 
 	// Create the advanced animation component, responsible for updating Mannequin and animating the player
 	m_pAnimationComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
-
+	
 	// Set the player geometry, this also triggers physics proxy creation
 	m_pAnimationComponent->SetMannequinAnimationDatabaseFile("Animations/Mannequin/ADB/FirstPerson.adb");
 
@@ -70,6 +70,20 @@ void CPlayerComponent::Initialize()
 	
 	// Register the RemoteReviveOnClient function as a Remote Method Invocation (RMI) that can be executed by the server on clients
 	SRmi<RMI_WRAP(&CPlayerComponent::RemoteReviveOnClient)>::Register(this, eRAT_NoAttach, false, eNRT_ReliableOrdered);
+
+	/* (will work on it later)
+	// create and attach flashlight component to the player
+	if (ICharacterInstance* pCharacter = m_pAnimationComponent->GetCharacter())
+	{
+		//m_flashLight = m_pEntity->GetOrCreateComponent<CFlashlight>();
+		IAttachment* pFlashLightAttachment = pCharacter->GetIAttachmentManager()->GetInterfaceByName("flashlight");
+		//m_flashLight->GetEntity()->AttachChild()
+		if (pFlashLightAttachment != nullptr)
+		{
+
+		}
+	}
+	*/
 }
 
 void CPlayerComponent::InitializeLocalPlayer()
