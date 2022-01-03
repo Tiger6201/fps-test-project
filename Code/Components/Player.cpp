@@ -73,19 +73,7 @@ void CPlayerComponent::Initialize()
 	SRmi<RMI_WRAP(&CPlayerComponent::RemoteReviveOnClient)>::Register(this, eRAT_NoAttach, false, eNRT_ReliableOrdered);
 
 	m_flashLight = m_pEntity->GetOrCreateComponent<CFlashlight>();
-	/* (will work on it later)
-	// create and attach flashlight component to the player
-	if (ICharacterInstance* pCharacter = m_pAnimationComponent->GetCharacter())
-	{
-		//m_flashLight = m_pEntity->GetOrCreateComponent<CFlashlight>();
-		IAttachment* pFlashLightAttachment = pCharacter->GetIAttachmentManager()->GetInterfaceByName("flashlight");
-		//m_flashLight->GetEntity()->AttachChild()
-		if (pFlashLightAttachment != nullptr)
-		{
-
-		}
-	}
-	*/
+	m_flashLight->setAttachment(getPlayerFlashlightAttachment());
 }
 
 void CPlayerComponent::InitializeLocalPlayer()
@@ -558,4 +546,15 @@ Vec3 CPlayerComponent::getAimTarget()
 	const int numHits = gEnv->pPhysicalWorld->RayWorldIntersection(cameraCenterNear, searchDirection, queryFlags, rayFlags, hits.data(), hits.max_size());
 
 	return hits[0].pt;
+}
+
+IAttachment* CPlayerComponent::getPlayerFlashlightAttachment() {
+	if (ICharacterInstance* pCharacter = m_pAnimationComponent->GetCharacter())
+	{
+		if (IAttachment* pFlashLightAttachment = pCharacter->GetIAttachmentManager()->GetInterfaceByName("flashlight")) {
+			return pFlashLightAttachment;
+		}
+	}
+
+	return nullptr;
 }

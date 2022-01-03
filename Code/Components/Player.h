@@ -113,7 +113,7 @@ public:
 
 	void aimpose();
 	Vec3 getAimTarget();
-
+	ICharacterInstance* getCharacter();
 protected:
 	void Revive(const Matrix34& transform);
 
@@ -123,6 +123,7 @@ protected:
 	void UpdateCamera(float frameTime);
 
 	void HandleInputFlagChange(CEnumFlags<EInputFlag> flags, CEnumFlags<EActionActivationMode> activationMode, EInputFlagType type = EInputFlagType::Hold);
+	IAttachment* getPlayerFlashlightAttachment();
 
 	// Called when this entity becomes the local player, to create client specific setup such as the Camera
 	void InitializeLocalPlayer();

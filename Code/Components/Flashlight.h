@@ -21,6 +21,8 @@ public:
 	bool IsLocalClient() const { return (m_pEntity->GetFlags() & ENTITY_FLAG_LOCAL_PLAYER) != 0; }
 	virtual NetworkAspectType GetNetSerializeAspectMask() const override { return FlashlightAspect; }
 	void turnOnOff();
+	void setAttachment(IAttachment* flashLightAttachment);
+	void updateFlashlightPos();
 
 	Cry::DefaultComponents::CProjectorLightComponent* m_projectorLight = nullptr;
 	// Reflect type to set a unique identifier for this component
@@ -37,5 +39,6 @@ public:
 
 protected:
 
+	IAttachment* m_attachment = nullptr;
 };
 

@@ -44,6 +44,7 @@ void CFlashlight::ProcessEvent(const SEntityEvent& event)
 	case Cry::Entity::EEvent::Update:
 	{
 		m_projectorLight->Enable(m_lightOn);
+		updateFlashlightPos();
 	}
 	break;
 	case Cry::Entity::EEvent::Reset:
@@ -70,4 +71,16 @@ bool CFlashlight::NetSerialize(TSerialize ser, EEntityAspects aspect, uint8 prof
 
 void CFlashlight::turnOnOff() {
 	m_lightOn = !m_lightOn;
+}
+
+void CFlashlight::setAttachment(IAttachment* flashLightAttachment) {
+	m_attachment = flashLightAttachment;
+}
+
+void CFlashlight::updateFlashlightPos() {
+	if (m_attachment && m_projectorLight) {
+		QuatTS location = m_attachment->GetAttWorldAbsolute();
+			m_projectorLight->SetTransformMatrix(Matrix34::Create(Vec3(1, 1, 1), location.q, location.t));	
+			IPersistantDebug* pPD = gEnv->pGameFramework->GetIPersistantDebug();
+	}
 }
