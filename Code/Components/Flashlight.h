@@ -2,7 +2,6 @@
 
 #include <CryEntitySystem/IEntitySystem.h>
 #include <DefaultComponents/Lights/ProjectorLightComponent.h>
-#include <DefaultComponents/Input/InputComponent.h>
 
 // Flash light
 
@@ -22,9 +21,8 @@ public:
 	bool IsLocalClient() const { return (m_pEntity->GetFlags() & ENTITY_FLAG_LOCAL_PLAYER) != 0; }
 	virtual NetworkAspectType GetNetSerializeAspectMask() const override { return FlashlightAspect; }
 	void turnOnOff();
-	Cry::DefaultComponents::CInputComponent* m_pInputComponent = nullptr;
-	Cry::DefaultComponents::CProjectorLightComponent* m_projectorLight = nullptr;
 
+	Cry::DefaultComponents::CProjectorLightComponent* m_projectorLight = nullptr;
 	// Reflect type to set a unique identifier for this component
 	// and provide additional information to expose it in the sandbox
 	static void ReflectType(Schematyc::CTypeDesc<CFlashlight>& desc)
@@ -35,8 +33,9 @@ public:
 		desc.SetDescription("");
 		desc.SetComponentFlags({ IEntityComponent::EFlags::Transform, IEntityComponent::EFlags::Socket, IEntityComponent::EFlags::Attach });
 	}
+	bool m_lightOn = true;
 
 protected:
-	bool m_lightOn = true;
+
 };
 

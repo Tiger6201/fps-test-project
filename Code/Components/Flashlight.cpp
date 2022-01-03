@@ -25,16 +25,6 @@ static void RegisterCFlashlight(Schematyc::IEnvRegistrar& registrar)
 void CFlashlight::Initialize()
 {
 	m_projectorLight = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CProjectorLightComponent>();
-	m_pInputComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CInputComponent>();
-
-	m_pInputComponent->RegisterAction("player", "turnOnOffFlashLight", [this](int activationMode, float value) {
-		if (activationMode == 2) {
-			turnOnOff();
-			NetMarkAspectsDirty(FlashlightAspect);
-		}
-
-		});
-	m_pInputComponent->BindAction("player", "turnOnOffFlashLight", eAID_KeyboardMouse, EKeyId::eKI_L);
 
 		m_pEntity->GetNetEntity()->BindToNetwork();
 }

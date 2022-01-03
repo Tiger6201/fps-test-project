@@ -33,6 +33,7 @@ void CPlayerComponent::Initialize()
 
 	// Create the advanced animation component, responsible for updating Mannequin and animating the player
 	m_pAnimationComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
+
 	
 	// Set the player geometry, this also triggers physics proxy creation
 	m_pAnimationComponent->SetMannequinAnimationDatabaseFile("Animations/Mannequin/ADB/FirstPerson.adb");
@@ -71,6 +72,7 @@ void CPlayerComponent::Initialize()
 	// Register the RemoteReviveOnClient function as a Remote Method Invocation (RMI) that can be executed by the server on clients
 	SRmi<RMI_WRAP(&CPlayerComponent::RemoteReviveOnClient)>::Register(this, eRAT_NoAttach, false, eNRT_ReliableOrdered);
 
+	m_flashLight = m_pEntity->GetOrCreateComponent<CFlashlight>();
 	/* (will work on it later)
 	// create and attach flashlight component to the player
 	if (ICharacterInstance* pCharacter = m_pAnimationComponent->GetCharacter())
@@ -116,6 +118,18 @@ void CPlayerComponent::InitializeLocalPlayer()
 
 	m_pInputComponent->RegisterAction("player", "mouse_rotatepitch", [this](int activationMode, float value) { m_mouseDeltaRotation.y -= value; });
 	m_pInputComponent->BindAction("player", "mouse_rotatepitch", eAID_KeyboardMouse, EKeyId::eKI_MouseY);
+
+	//flashlight
+	m_pInputComponent->RegisterAction("player", "turnOnOffFlashLight", [this](int activationMode, float value) {
+		if (activationMode == 2 && m_flashLight) {
+			m_flashLight->turnOnOff();
+			//NetMarkAspectsDirty(m_flashLight->FlashlightAspect); I still don't know why I have to serialize m_flashLight->m_lightOn from the Player Component
+		}
+
+		});
+
+	m_pInputComponent->BindAction("player", "turnOnOffFlashLight", eAID_KeyboardMouse, EKeyId::eKI_L);
+
 
 	// Register the shoot action
 	m_pInputComponent->RegisterAction("player", "shoot", [this](int activationMode, float value)
@@ -238,6 +252,7 @@ bool CPlayerComponent::NetSerialize(TSerialize ser, EEntityAspects aspect, uint8
 		ser.Value("m_targetAimpose", m_targetAimpose, 'wrld');
 		ser.Value("m_horizontalAngularVelocity", m_horizontalAngularVelocity, 'frad');
 		ser.Value("m_averagedHorizontalAngularVelocity", m_averagedHorizontalAngularVelocity, 'frad');
+		ser.Value("flashlight", m_flashLight->m_lightOn, 'bool');
 
 		ser.EndGroup();
 	}
