@@ -24,7 +24,13 @@ static void RegisterCFlashlight(Schematyc::IEnvRegistrar& registrar)
  
 void CFlashlight::Initialize()
 {
-	m_projectorLight = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CProjectorLightComponent>();
+	SEntitySpawnParams spawnParams;
+	spawnParams.pClass = gEnv->pEntitySystem->GetClassRegistry()->GetDefaultClass();
+
+	if (IEntity* pEntity = gEnv->pEntitySystem->SpawnEntity(spawnParams))
+	{
+		m_projectorLight = pEntity->GetOrCreateComponent<Cry::DefaultComponents::CProjectorLightComponent>();
+	}
 
 		m_pEntity->GetNetEntity()->BindToNetwork();
 }
@@ -71,7 +77,7 @@ bool CFlashlight::NetSerialize(TSerialize ser, EEntityAspects aspect, uint8 prof
 
 void CFlashlight::turnOnOff() {
 	m_lightOn = !m_lightOn;
-}
+} 
 
 void CFlashlight::setAttachment(IAttachment* flashLightAttachment) {
 	m_attachment = flashLightAttachment;
@@ -79,8 +85,7 @@ void CFlashlight::setAttachment(IAttachment* flashLightAttachment) {
 
 void CFlashlight::updateFlashlightPos() {
 	if (m_attachment && m_projectorLight) {
-		QuatTS location = m_attachment->GetAttWorldAbsolute();
-			m_projectorLight->SetTransformMatrix(Matrix34::Create(Vec3(1, 1, 1), location.q, location.t));	
-			IPersistantDebug* pPD = gEnv->pGameFramework->GetIPersistantDebug();
+			QuatTS location = m_attachment->GetAttWorldAbsolute();
+			m_projectorLight->SetTransformMatrix(Matrix34::Create(Vec3(1, 1, 1), location.q, location.t));		
 	}
 }
