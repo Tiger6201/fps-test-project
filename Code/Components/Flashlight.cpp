@@ -12,6 +12,7 @@
 #include <CrySchematyc/MathTypes.h>
 #include <CrySchematyc/Utils/SharedString.h>
 #include <CryCore/StaticInstanceList.h>
+#include "DefaultComponents/Geometry/BaseMeshComponent.h"
 
 static void RegisterCFlashlight(Schematyc::IEnvRegistrar& registrar)
 {
@@ -86,6 +87,9 @@ void CFlashlight::setAttachment(IAttachment* flashLightAttachment) {
 void CFlashlight::updateFlashlightPos() {
 	if (m_attachment && m_projectorLight) {
 			QuatTS location = m_attachment->GetAttWorldAbsolute();
-			m_projectorLight->SetTransformMatrix(Matrix34::Create(Vec3(1, 1, 1), location.q, location.t));		
+			m_projectorLight->SetTransformMatrix(Matrix34::Create(Vec3(1, 1, 1), location.q, location.t));	
+			m_projectorLight->GetColorParameters().m_diffuseMultiplier = 10;
+			m_projectorLight->GetShadowParameters().m_castShadowSpec = Cry::DefaultComponents::EMiniumSystemSpec::Always;
+
 	}
 }
