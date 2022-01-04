@@ -520,6 +520,7 @@ void CPlayerComponent::aimpose() {
 		//pPoseBlenderAim->SetPolarCoordinatesOffset({ -0.53,  0.13 });
 		pPoseBlenderAim->SetFadeInSpeed(0);
 		pPoseBlenderAim->SetFadeOutSpeed(0);
+		pPoseBlenderAim->SetPolarCoordinatesSmoothTimeSeconds(0.1);
 	}
 
 }
