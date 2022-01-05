@@ -25,13 +25,15 @@ add_sources("Code_uber.cpp"
 add_sources("Components_uber.cpp"
     PROJECTS Game
     SOURCE_GROUP "Components"
+		"Components/Flashlight.cpp"
 		"Components/Player.cpp"
 		"Components/SpawnPoint.cpp"
+		"Components/VendingMachine.cpp"
 		"Components/Bullet.h"
+		"Components/Flashlight.h"
 		"Components/Player.h"
 		"Components/SpawnPoint.h"
-        "Components/Flashlight.h"
-        "Components/Flashlight.cpp"
+		"Components/VendingMachine.h"
 )
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/CVarOverrides.h")
