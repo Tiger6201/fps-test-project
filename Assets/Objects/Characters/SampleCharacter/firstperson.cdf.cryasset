@@ -10,5 +10,6 @@
   <Path>objects/characters/samplecharacter/motusBodyMAT.mtl</Path>
   <Path>Objects/Weapons/SampleWeapon/defaultweapon.cgf</Path>
   <Path>Objects/Weapons/SampleWeapon/defaultweapon.mtl</Path>
+  <Path>Objects/flashlight/flash_light.cgf</Path>
  </Dependencies>
 </AssetMetadata>

@@ -31,6 +31,8 @@ void CFlashlight::Initialize()
 	if (IEntity* pEntity = gEnv->pEntitySystem->SpawnEntity(spawnParams))
 	{
 		m_projectorLight = pEntity->GetOrCreateComponent<Cry::DefaultComponents::CProjectorLightComponent>();
+		m_projectorLight->GetColorParameters().m_diffuseMultiplier = 10;
+		m_projectorLight->GetShadowParameters().m_castShadowSpec = Cry::DefaultComponents::EMiniumSystemSpec::Always;
 	}
 
 		m_pEntity->GetNetEntity()->BindToNetwork();
@@ -88,8 +90,5 @@ void CFlashlight::updateFlashlightPos() {
 	if (m_attachment && m_projectorLight) {
 			QuatTS location = m_attachment->GetAttWorldAbsolute();
 			m_projectorLight->SetTransformMatrix(Matrix34::Create(Vec3(1, 1, 1), location.q, location.t));	
-			m_projectorLight->GetColorParameters().m_diffuseMultiplier = 10;
-			m_projectorLight->GetShadowParameters().m_castShadowSpec = Cry::DefaultComponents::EMiniumSystemSpec::Always;
-
 	}
 }

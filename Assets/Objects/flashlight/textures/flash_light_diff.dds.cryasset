@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Texture" guid="cec1556b-8102-111a-31ab-8e926a744615">
+ <Files>
+  <File path="flash_light_diff.dds"/>
+  <File path="flash_light_diff.dds.1"/>
+  <File path="flash_light_diff.dds.2"/>
+  <File path="flash_light_diff.dds.3"/>
+  <File path="flash_light_diff.dds.4"/>
+ </Files>
+ <Details>
+  <Detail name="width">256</Detail>
+  <Detail name="height">256</Detail>
+  <Detail name="mipCount">7</Detail>
+ </Details>
+</AssetMetadata>

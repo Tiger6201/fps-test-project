@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Material" guid="52f621b3-e880-97af-f05f-ee08a9028441" source="" timestamp="1641411366">
+ <Files>
+  <File path="flash_light.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">0</Detail>
+  <Detail name="textureCount">3</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">./textures/flash_light_diff.dds</Path>
+  <Path usageCount="1">./textures/flash_light_ddna.dds</Path>
+  <Path usageCount="1">./textures/metal_detail.dds</Path>
+ </Dependencies>
+</AssetMetadata>
