@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Texture" guid="d9a97ad9-d1fc-8665-a5d1-caef33812f37">
+ <Files>
+  <File path="soda_can_diff.dds"/>
+  <File path="soda_can_diff.dds.1"/>
+  <File path="soda_can_diff.dds.2"/>
+  <File path="soda_can_diff.dds.3"/>
+  <File path="soda_can_diff.dds.4"/>
+ </Files>
+ <Details>
+  <Detail name="width">256</Detail>
+  <Detail name="height">256</Detail>
+  <Detail name="mipCount">7</Detail>
+ </Details>
+</AssetMetadata>

@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="c337d7df-10ac-97bf-4fa3-362a8306e5f0" source="lowpoly.FBX" timestamp="1641504348">
+ <Files>
+  <File path="vending.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">2</Detail>
+  <Detail name="triangleCount">3344</Detail>
+  <Detail name="vertexCount">3116</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">./lowpoly.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

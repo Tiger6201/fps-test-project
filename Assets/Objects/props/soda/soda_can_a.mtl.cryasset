@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Material" guid="e1564505-a3f8-4b0f-0ffe-d02a0a8c4fb5" source="" timestamp="1641504726">
+ <Files>
+  <File path="soda_can_a.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">2</Detail>
+  <Detail name="textureCount">3</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">./textures/soda_can_diff.dds</Path>
+  <Path usageCount="1">./textures/soda_can_ddna.dds</Path>
+  <Path usageCount="1">./textures/soda_can_spec.dds</Path>
+ </Dependencies>
+</AssetMetadata>
