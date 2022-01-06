@@ -1,10 +1,10 @@
-<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1641135920">
+<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1641508046">
  <Files>
   <File path="example/example.level"/>
  </Files>
  <Dependencies>
-  <Path>%editor%/objects/envcube.cgf</Path>
-  <Path>%editor%/objects/envcube.mtl</Path>
+  <Path>%editor%/objects/mtlobjects.mtl</Path>
+  <Path>%editor%/objects/mtlsphere.cgf</Path>
   <Path>%engine%/engineassets/icons/averagememoryusage.dds</Path>
   <Path>%engine%/engineassets/icons/highmemoryusage.dds</Path>
   <Path>%engine%/engineassets/icons/livepreview.dds</Path>
@@ -97,10 +97,18 @@
   <Path>objects/characters/samplecharacter/motusbodyheadless.skin</Path>
   <Path>objects/characters/samplecharacter/motusbodymat.mtl</Path>
   <Path>objects/characters/samplecharacter/skelproxy.chr</Path>
+  <Path>objects/flashlight/flash_light.cgf</Path>
+  <Path>objects/flashlight/flash_light.mtl</Path>
+  <Path>objects/flashlight/flash_light_lod1.cgf</Path>
+  <Path>objects/flashlight/textures/flash_light_ddna.dds</Path>
+  <Path>objects/flashlight/textures/flash_light_diff.dds</Path>
+  <Path>objects/flashlight/textures/metal_detail.dds</Path>
+  <Path>objects/interaction items/vending/vending.cgf</Path>
+  <Path>objects/interaction items/vending/vending.mtl</Path>
+  <Path>objects/interaction items/vending/vending.mtl</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.cgf</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.mtl</Path>
-  <Path>textures/cubemaps/example/environmentprobe1_cm.dds</Path>
-  <Path>textures/cubemaps/example/environmentprobe1_cm_diff.dds</Path>
+  <Path>scripts/ai/factions.xml</Path>
   <Path>textures/lights/lens_flares/circular_bokeh_blurry.dds</Path>
   <Path>textures/lights/lens_flares/element_smoke.dds</Path>
   <Path>textures/lights/lens_flares/ghost_a_grey.dds</Path>
