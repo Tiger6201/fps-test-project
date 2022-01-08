@@ -1,10 +1,8 @@
-<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1641508046">
+<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1641681532">
  <Files>
   <File path="example/example.level"/>
  </Files>
  <Dependencies>
-  <Path>%editor%/objects/mtlobjects.mtl</Path>
-  <Path>%editor%/objects/mtlsphere.cgf</Path>
   <Path>%engine%/engineassets/icons/averagememoryusage.dds</Path>
   <Path>%engine%/engineassets/icons/highmemoryusage.dds</Path>
   <Path>%engine%/engineassets/icons/livepreview.dds</Path>
@@ -105,7 +103,11 @@
   <Path>objects/flashlight/textures/metal_detail.dds</Path>
   <Path>objects/interaction items/vending/vending.cgf</Path>
   <Path>objects/interaction items/vending/vending.mtl</Path>
-  <Path>objects/interaction items/vending/vending.mtl</Path>
+  <Path>objects/props/soda/soda_can_a.cgf</Path>
+  <Path>objects/props/soda/soda_can_a.mtl</Path>
+  <Path>objects/props/soda/textures/soda_can_ddna.dds</Path>
+  <Path>objects/props/soda/textures/soda_can_diff.dds</Path>
+  <Path>objects/props/soda/textures/soda_can_spec.dds</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.cgf</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.mtl</Path>
   <Path>scripts/ai/factions.xml</Path>

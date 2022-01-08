@@ -1,5 +1,5 @@
 <ObjectLayer>
- <Layer Name="Main" FullName="Main" GUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Hidden="0" Frozen="0" Expanded="0" Type="0" Exportable="1" ExportLayerPak="1" DefaultLoaded="0" HavePhysics="1" IsDefaultColor="1" Color="4671303" Timestamp="1641435435">
+ <Layer Name="Main" FullName="Main" GUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Hidden="0" Frozen="0" Expanded="0" Type="0" Exportable="1" ExportLayerPak="1" DefaultLoaded="0" HavePhysics="1" IsDefaultColor="1" Color="4671303" Timestamp="1641681459">
   <LayerObjects>
    <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4ccb90a3-1dbb-4500-99bf-25286ff6daf7" Name="Designer Box3" Pos="80,66,32" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="%ENGINE%/EngineAssets/Materials/material_default" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
     <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
@@ -58,6 +58,72 @@
        </scale>
       </Transform>
       <properties />
+     </Component>
+    </Components>
+   </Object>
+   <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="6219f3fc-04e0-ed1e-fffd-c0f822835b47" Name="RigidBodyEx4" Pos="69.5,56.5,32.5" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component CryXmlVersion="2" TypeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29" TypeName="Cry::DefaultComponents::CStaticMeshComponent" GUID="b3132775-00e7-9f66-d1c8-59d4d5b1694d" Name="" UserAdded="true">
+      <Transform>
+       <translation>
+        <position>
+         <element element="0"/>
+         <element element="0"/>
+         <element element="0"/>
+        </position>
+       </translation>
+       <rotation x="0" y="-0" z="0"/>
+       <scale>
+        <element element="1"/>
+        <element element="1"/>
+        <element element="1"/>
+       </scale>
+      </Transform>
+      <properties Type="RenderAndCollider" FilePath="%ENGINE%/EngineAssets/Objects/primitive_cube.cgf" Material="%ENGINE%/EngineAssets/Materials/material_default.mtl">
+       <IEditorEntityComponent />
+       <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
+       <Physics WeightType="EWeightType::Mass" Density="0" Mass="20"/>
+      </properties>
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6" TypeName="Cry::DefaultComponents::CRigidBodyComponent" GUID="363a4db7-598d-9868-0109-852749200b68" Name="" UserAdded="true">
+      <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
+       <Buoyancy Damping="1" Density="1" Resistance="1"/>
+       <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
+      </properties>
+     </Component>
+    </Components>
+   </Object>
+   <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4efed0ce-a52e-e9aa-78e9-ccd1db3c9bc8" Name="RigidBodyEx3" Pos="68.5,56.5,32.5" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component CryXmlVersion="2" TypeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29" TypeName="Cry::DefaultComponents::CStaticMeshComponent" GUID="b3132775-00e7-9f66-d1c8-59d4d5b1694d" Name="" UserAdded="true">
+      <Transform>
+       <translation>
+        <position>
+         <element element="0"/>
+         <element element="0"/>
+         <element element="0"/>
+        </position>
+       </translation>
+       <rotation x="0" y="-0" z="0"/>
+       <scale>
+        <element element="1"/>
+        <element element="1"/>
+        <element element="1"/>
+       </scale>
+      </Transform>
+      <properties Type="RenderAndCollider" FilePath="%ENGINE%/EngineAssets/Objects/primitive_cube.cgf" Material="%ENGINE%/EngineAssets/Materials/material_default.mtl">
+       <IEditorEntityComponent />
+       <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
+       <Physics WeightType="EWeightType::Mass" Density="0" Mass="20"/>
+      </properties>
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6" TypeName="Cry::DefaultComponents::CRigidBodyComponent" GUID="363a4db7-598d-9868-0109-852749200b68" Name="" UserAdded="true">
+      <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
+       <Buoyancy Damping="1" Density="1" Resistance="1"/>
+       <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
+      </properties>
      </Component>
     </Components>
    </Object>
@@ -120,39 +186,6 @@
     </Brush>
     <Mesh Version="2" BinaryData="AAAAAAAAAABAAAAAQAAAAJAAAABAAAAAAQAAAAAAsEEAAKjBAAAAAAAAsEEAAAAAAAAAAAAAuEEAAIA/AAAAAAAAuEEAALDBAAAAAAAAAAAAAIA/AAAAAAAAgD8AAKjBAAAAAAAAgD8AAAAAAAAAAAAAAAAAALDBAAAAAAAAsEEAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAsEEAAAAAAAAAAAAAsEEAAAAAAACAQAAAgD8AAAAAAACAQAAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAuEEAAIA/AACAPwAAuEEAAIA/AAAAAAAAAAAAAIA/AACAQAAAuEEAAIA/AACAQAAAAAAAAIA/AAAAAAAAAAAAALDBAAAAAAAAAAAAALDBAACAPwAAAAAAAIA/AACAPwAAAAAAALDBAACAQAAAAAAAAIA/AACAQAAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAgD8AAKjBAACAPwAAgD8AAKjBAAAAAAAAgD8AAAAAAACAQAAAgD8AAKjBAACAQAAAAAAAALDBAAAAAAAAuEEAALDBAAAAAAAAuEEAALDBAACAPwAAAAAAALDBAACAPwAAuEEAALDBAACAQAAAAAAAALDBAACAQAAAgD8AAKjBAAAAAAAAgD8AAKjBAACAPwAAsEEAAKjBAACAPwAAsEEAAKjBAAAAAAAAgD8AAKjBAACAQAAAsEEAAKjBAACAQAAAuEEAAIA/AACAPwAAuEEAALDBAACAPwAAuEEAALDBAAAAAAAAuEEAAIA/AAAAAAAAuEEAAIA/AACAQAAAuEEAALDBAACAQAAAsEEAAAAAAACAPwAAsEEAAAAAAAAAAAAAsEEAAKjBAAAAAAAAsEEAAKjBAACAPwAAsEEAAKjBAACAQAAAsEEAAAAAAACAQAAAuEEAAIA/AACAQAAAAAAAAIA/AACAQAAAgD8AAAAAAACAQAAAsEEAAAAAAACAQAAAgD8AAKjBAACAQAAAsEEAAKjBAACAQAAAAAAAALDBAACAQAAAuEEAALDBAACAQAAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAsMEAAKjBAACwwQAAAAAAALjBAACAPwAAuMEAALDBAAAAAAAAgD8AAIC/AACowQAAgL8AAAAAAAAAAAAAsMEAALBBAACAvwAAgD8AAIC/AACAPwAAAAAAALBBAAAAAAAAsEEAAIDAAACAPwAAgMAAAAAAAAAAAAAAAAAAAIC/AAC4wQAAgL8AALjBAAAAAAAAAAAAAIDAAAC4wQAAgMAAAIC/AAAAAAAAsEEAAAAAAACwQQAAgL8AAIC/AACAvwAAsEEAAIDAAACAvwAAgMAAAAAAAAAAAAAAAAAAAIC/AACowQAAgL8AAKjBAAAAAAAAAAAAAIDAAACowQAAgMAAAAAAAAAAAAAAuEEAAAAAAAC4QQAAgL8AAAAAAACAvwAAuEEAAIDAAAAAAAAAgMAAAIC/AAAAAAAAgL8AAIC/AACwwQAAgL8AALDBAAAAAAAAgL8AAIDAAACwwQAAgMAAAIA/AACAvwAAsMEAAIC/AACwwQAAAAAAAIA/AAAAAAAAgD8AAIDAAACwwQAAgMAAAAAAAACAvwAAAAAAAAAAAACoQQAAAAAAAKhBAACAvwAAqEEAAIDAAAAAAAAAgMAAALhBAACAvwAAAAAAAIC/AACAPwAAAAAAALBBAAAAAAAAgD8AAKhBAACwQQAAqEEAAAAAAACwQQAAuEEAALBBAAABAAIAAwAAAAIABAACAAEABQAAAAMABgAEAAEABQAEAAYABwAFAAMABwAEAAUACAAJAAoACAAKAAsADAAJAAgADAANAAkADgAPABAADgAQABEAEgAQAA8AEgATABAAFAAVABYAFAAWABcAGAAXABYAGAAZABcAGgAbABwAGgAcAB0AHgAcABsAHgAfABwAIAAhACIAIAAiACMAJAAjACIAJAAlACMAJgAnACgAJgAoACkAKgAoACcAKgArACgALAAtAC4ALAAuAC8AMAAtACwAMAAxAC0AMgAzADQAMgA0ADUANgAyADUANgA3ADIAOAA5ADoAOwA4ADoAPAA6ADkAPQA4ADsAPgA8ADkAPQA8AD4APwA4AD0APwA9AD4AAYAAAAAA/38AAP9/AAD/fwGAAAAAAP9/AAD/fwAA/38BgAAAAAD/fwAA/38AAP9/AYAAAAAA/38AAP9/AAD/fwKAAAAAAP9/AAD+fwAA/38BgAAAAAD/fwAA/38AAP9/AoAAAAAA/38AAP5/AAD/fwKAAAAAAP9/AAD+fwAA/3//fwAAAAABgAAAAAABgAGA/n8AAAAAAYAAAAAAAoABgP9/AAAAAAGAAAAAAAGAAYD/fwAAAAABgAAAAAABgAGA/n8AAAAAAYAAAAAAAoABgP5/AAAAAAGAAAAAAAKAAYABgAAAAAABgAAAAAABgAGAAoAAAAAAAYAAAAAAAoABgAKAAAAAAAGAAAAAAAKAAYACgAAAAAABgAAAAAACgAGAAoAAAAAAAYAAAAAAAoABgAGAAAAAAAGAAAAAAAGAAYAAAAGAAAABgAAAAAABgAGAAAACgAAAAYAAAAAAAoABgAAAAoAAAAGAAAAAAAKAAYAAAAKAAAABgAAAAAACgAGAAAACgAAAAYAAAAAAAoABgAAAAYAAAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD/fwAAAYAAAAAAAYABgAAA/38AAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD+fwAAAYAAAAAAAoABgAAA/n8AAAGAAAAAAAKAAYD/fwAAAAABgAAAAAABgAGA/n8AAAAAAYAAAAAAAoABgP5/AAAAAAGAAAAAAAKAAYD+fwAAAAABgAAAAAACgAGA/n8AAAAAAYAAAAAAAoABgP9/AAAAAAGAAAAAAAGAAYABgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAYABgAGAAAAAAAGAAAAAAAGAAYABgAAAAAABgAAAAAABgAGAAoAAAAAAAYAAAAAAAoABgAKAAAAAAAGAAAAAAAKAAYAAAP5/AAABgAAAAAACgAGAAAD+fwAAAYAAAAAAAoABgAAA/38AAAGAAAAAAAGAAYAAAP5/AAABgAAAAAACgAGAAAD+fwAAAYAAAAAAAoABgAAA/38AAAGAAAAAAAGAAYAAAAGAAAABgAAAAAABgAGAAAABgAAAAYAAAAAAAYABgAAAAYAAAAGAAAAAAAGAAYAAAAGAAAABgAAAAAABgAGAAAACgAAAAYAAAAAAAoABgAAAAoAAAAGAAAAAAAKAAYD+fwAAAAABgAAAAoAAAAGA/38AAAAAAYAAAAGAAAABgP9/AAAAAAGAAAABgAAAAYD+fwAAAAABgAAAAoAAAAGA/38AAAAAAYAAAAGAAAABgP9/AAAAAAGAAAABgAAAAYD/fwAAAAABgAAAAYAAAAGA/n8AAAAAAYAAAAKAAAABgAAAOEEAACjBAAAAQHcWg0EAAAAAAAAAAJAAAAAAAAAAQAAAAAAAAAAAAAAAABAAAA=="/>
    </Object>
-   <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4efed0ce-a52e-e9aa-78e9-ccd1db3c9bc8" Name="RigidBodyEx3" Pos="68.5,56.5,32.5" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
-    <Properties />
-    <Components>
-     <Component CryXmlVersion="2" TypeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29" TypeName="Cry::DefaultComponents::CStaticMeshComponent" GUID="b3132775-00e7-9f66-d1c8-59d4d5b1694d" Name="" UserAdded="true">
-      <Transform>
-       <translation>
-        <position>
-         <element element="0"/>
-         <element element="0"/>
-         <element element="0"/>
-        </position>
-       </translation>
-       <rotation x="0" y="-0" z="0"/>
-       <scale>
-        <element element="1"/>
-        <element element="1"/>
-        <element element="1"/>
-       </scale>
-      </Transform>
-      <properties Type="RenderAndCollider" FilePath="%ENGINE%/EngineAssets/Objects/primitive_cube.cgf" Material="%ENGINE%/EngineAssets/Materials/material_default.mtl">
-       <IEditorEntityComponent />
-       <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
-       <Physics WeightType="EWeightType::Mass" Density="0" Mass="20"/>
-      </properties>
-     </Component>
-     <Component CryXmlVersion="2" TypeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6" TypeName="Cry::DefaultComponents::CRigidBodyComponent" GUID="363a4db7-598d-9868-0109-852749200b68" Name="" UserAdded="true">
-      <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
-       <Buoyancy Damping="1" Density="1" Resistance="1"/>
-       <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
-      </properties>
-     </Component>
-    </Components>
-   </Object>
    <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4e3d7156-f447-a087-d3aa-ab35431245a4" Name="RigidBodyEx2" Pos="67.5,56.5,32.5" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
     <Properties />
     <Components>
@@ -212,72 +245,6 @@
       </properties>
      </Component>
      <Component CryXmlVersion="2" TypeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6" TypeName="Cry::DefaultComponents::CRigidBodyComponent" GUID="f9f6de95-ba1d-0d7e-df08-d912f7138109" Name="" UserAdded="true">
-      <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
-       <Buoyancy Damping="1" Density="1" Resistance="1"/>
-       <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
-      </properties>
-     </Component>
-    </Components>
-   </Object>
-   <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="a6b48565-63f4-fb43-2652-9b8bf2493c57" Name="RigidBodyEx1" Pos="61.217533,50.189934,32.16391" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
-    <Properties />
-    <Components>
-     <Component CryXmlVersion="2" TypeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29" TypeName="Cry::DefaultComponents::CStaticMeshComponent" GUID="acabc0be-9b34-a08a-27f6-d981c90702c2" Name="" UserAdded="true">
-      <Transform>
-       <translation>
-        <position>
-         <element element="0"/>
-         <element element="0"/>
-         <element element="0"/>
-        </position>
-       </translation>
-       <rotation x="0" y="-0" z="0"/>
-       <scale>
-        <element element="1"/>
-        <element element="1"/>
-        <element element="1"/>
-       </scale>
-      </Transform>
-      <properties Type="RenderAndCollider" FilePath="%ENGINE%/EngineAssets/Objects/primitive_cube.cgf" Material="%ENGINE%/EngineAssets/Materials/material_default.mtl">
-       <IEditorEntityComponent />
-       <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
-       <Physics WeightType="EWeightType::Mass" Density="0" Mass="20"/>
-      </properties>
-     </Component>
-     <Component CryXmlVersion="2" TypeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6" TypeName="Cry::DefaultComponents::CRigidBodyComponent" GUID="975e329b-3094-8265-3765-f4e041c83efe" Name="" UserAdded="true">
-      <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
-       <Buoyancy Damping="1" Density="1" Resistance="1"/>
-       <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
-      </properties>
-     </Component>
-    </Components>
-   </Object>
-   <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="6219f3fc-04e0-ed1e-fffd-c0f822835b47" Name="RigidBodyEx4" Pos="69.5,56.5,32.5" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
-    <Properties />
-    <Components>
-     <Component CryXmlVersion="2" TypeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29" TypeName="Cry::DefaultComponents::CStaticMeshComponent" GUID="b3132775-00e7-9f66-d1c8-59d4d5b1694d" Name="" UserAdded="true">
-      <Transform>
-       <translation>
-        <position>
-         <element element="0"/>
-         <element element="0"/>
-         <element element="0"/>
-        </position>
-       </translation>
-       <rotation x="0" y="-0" z="0"/>
-       <scale>
-        <element element="1"/>
-        <element element="1"/>
-        <element element="1"/>
-       </scale>
-      </Transform>
-      <properties Type="RenderAndCollider" FilePath="%ENGINE%/EngineAssets/Objects/primitive_cube.cgf" Material="%ENGINE%/EngineAssets/Materials/material_default.mtl">
-       <IEditorEntityComponent />
-       <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
-       <Physics WeightType="EWeightType::Mass" Density="0" Mass="20"/>
-      </properties>
-     </Component>
-     <Component CryXmlVersion="2" TypeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6" TypeName="Cry::DefaultComponents::CRigidBodyComponent" GUID="363a4db7-598d-9868-0109-852749200b68" Name="" UserAdded="true">
       <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Rigid" SendCollisionSignal="false">
        <Buoyancy Damping="1" Density="1" Resistance="1"/>
        <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
@@ -351,46 +318,7 @@
      </Component>
     </Components>
    </Object>
-   <Object Type="Designer" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="a08de636-3b00-fcb7-f254-156e35e67df7" Name="Designer-1" Pos="64.270973,49.602272,31.999756" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="16777215" UseCustomLevelLayerColor="0" Material="%ENGINE%/EngineAssets/TextureMsg/DefaultSolids" MinSpec="0" RndFlags="1073741832" StaticObjFlags="0" ViewDistRatio="100">
-    <Brush DesignerModeFlags="0" SubdivisionLevel="0" SubdivisionSmoothingGroup="0" MirrorPlaneNormal="0,0,0" MirrorPlaneDistance="0">
-     <Polygon GUID="c409a8d3-f3bf-5fb3-a94e-b96517610677" BinaryData="BAAAAAAAAABIcOC/AAAAQFvrwD8AAAAAAAAAAAAAAABIcOC/AAAAAGDrwL8AAAAAAAAAAAAAAABIcOC/AAAAAGDrwL8AAABgibu4PwAAAABIcOC/AAAAQFvrwD8AAABgibu4PwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAAAAAAAAAAAASHDgv+1ah74AAAAAAAAAAAAAAAAAAAAAS9zFve1ah75L3MW9"/>
-     <Polygon GUID="5f97c81a-42b4-6a55-fb55-ccf4a0b8d9dc" BinaryData="BAAAAAAAAMBOcOA/AAAAAGDrwL8AAAAAAAAAAAAAAMBOcOA/AAAAQFvrwD8AAAAAAAAAAAAAAMBOcOA/AAAAQFvrwD8AAABgibu4PwAAAMBOcOA/AAAAAGDrwL8AAABgibu4PwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAASHDgvwAAAAAAAAAA7VqHPgAAAADtWoc+S9zFvQAAAABL3MW9"/>
-     <Polygon GUID="fbb92047-e701-2860-7dd7-f9a8d7595906" BinaryData="BAAAAAAAAMBOcOA/AAAAQFvrwD8AAAAAAAAAANBl7iwW7MM/AAAAQFvrwD8AAAAAAAAAANBl7iwW7MM/AAAAQFvrwD8AAABgibu4PwAAAMBOcOA/AAAAQFvrwD8AAABgibu4PwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAABAW+vAv1uCg78AAAAAbForvwAAAABsWiu/S9zFvVuCg79L3MW9"/>
-     <Polygon GUID="ccd3b881-2a25-70b2-2c6c-6f93b2165fa9" BinaryData="BAAAAAAAAMBOcOA/AAAAQFvrwD8AAABgibu4P9Bl7iwW7MM/AAAAQFvrwD8AAABgibu4P9Bl7iwW7MM/AAAAAGDrwL8AAABgibu4PwAAAMBOcOA/AAAAAGDrwL8AAABgibu4PwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAABgibu4v1uCgz/tWoe+bForP+1ah75sWis/AAAAAFuCgz8AAAAA"/>
-     <Polygon GUID="dd0977fe-d14d-0ff5-a69d-e8c87bc2d55b" BinaryData="BAAAAAAAAMBOcOA/AAAAAGDrwL8AAABgibu4P9Bl7iwW7MM/AAAAAGDrwL8AAABgibu4P9Bl7iwW7MM/AAAAAGDrwL8AAAAAAAAAAAAAAMBOcOA/AAAAAGDrwL8AAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAABAW+vAv1uCgz9L3MW9bForP0vcxb1sWis/AAAAAFuCgz8AAAAA"/>
-     <Polygon GUID="047a25f5-1411-72cf-63ef-179e4b2d9fbd" BinaryData="BAAAAAAAAMBOcOA/AAAAAGDrwL8AAAAAAAAAANBl7iwW7MM/AAAAAGDrwL8AAAAAAAAAANBl7iwW7MM/AAAAQFvrwD8AAAAAAAAAAAAAAMBOcOA/AAAAQFvrwD8AAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAAAAgFuCg78AAAAAbForvwAAAABsWiu/7VqHPluCg7/tWoc+"/>
-     <Polygon GUID="892f811b-e756-eb3e-0993-48a8ea380de4" BinaryData="BAAAANBl7iwW7MM/AAAAQFvrwD8AAAAAAAAAABDyfl2+asW/AAAAQFvrwD8AAAAAAAAAABDyfl2+asW/AAAAQFvrwD8AAABgibu4P9Bl7iwW7MM/AAAAQFvrwD8AAABgibu4PwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAABAW+vAv2xaK78AAAAAh1mxvgAAAACHWbG+S9zFvWxaK79L3MW9"/>
-     <Polygon GUID="c25b0bc6-4068-1dec-1100-461b9a4b4945" BinaryData="BAAAABDyfl2+asW/AAAAQFvrwD8AAAAAAAAAAAAAAABIcOC/AAAAQFvrwD8AAAAAAAAAAAAAAABIcOC/AAAAQFvrwD8AAABgibu4PxDyfl2+asW/AAAAQFvrwD8AAABgibu4PwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAABAW+vAv4dZsb4AAAAAAAAAAAAAAAAAAAAAS9zFvYdZsb5L3MW9"/>
-     <Polygon GUID="321d410b-ea1a-e570-f883-e38b867baf5b" BinaryData="BAAAANBl7iwW7MM/AAAAQFvrwD8AAABgibu4PxDyfl2+asW/AAAAQFvrwD8AAABgibu4PxDyfl2+asW/AAAAAGDrwL8AAABgibu4P9Bl7iwW7MM/AAAAAGDrwL8AAABgibu4PwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAABgibu4v2xaKz/tWoe+h1mxPu1ah76HWbE+AAAAAGxaKz8AAAAA"/>
-     <Polygon GUID="501eefd1-0701-be69-0638-718011f70186" BinaryData="BAAAABDyfl2+asW/AAAAQFvrwD8AAABgibu4PwAAAABIcOC/AAAAQFvrwD8AAABgibu4PwAAAABIcOC/AAAAAGDrwL8AAABgibu4PxDyfl2+asW/AAAAAGDrwL8AAABgibu4PwQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAABgibu4v4dZsT7tWoe+AAAAAO1ah74AAAAAAAAAAIdZsT4AAAAA"/>
-     <Polygon GUID="9362ac0b-a986-a8ee-ea71-436f4926bc9a" BinaryData="BAAAANBl7iwW7MM/AAAAAGDrwL8AAABgibu4PxDyfl2+asW/AAAAAGDrwL8AAABgibu4PxDyfl2+asW/AAAAAGDrwL8AAAAAAAAAANBl7iwW7MM/AAAAAGDrwL8AAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAABAW+vAv2xaKz9L3MW9h1mxPkvcxb2HWbE+AAAAAGxaKz8AAAAA"/>
-     <Polygon GUID="559e3314-d993-e222-1a3f-0ef9a3d5fdde" BinaryData="BAAAABDyfl2+asW/AAAAAGDrwL8AAABgibu4PwAAAABIcOC/AAAAAGDrwL8AAABgibu4PwAAAABIcOC/AAAAAGDrwL8AAAAAAAAAABDyfl2+asW/AAAAAGDrwL8AAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAAAAAAAAABAW+vAv4dZsT5L3MW9AAAAAEvcxb0AAAAAAAAAAIdZsT4AAAAA"/>
-     <Polygon GUID="ba4a14ff-b69b-3e8d-65ea-88a6ccc5779e" BinaryData="BAAAANBl7iwW7MM/AAAAAGDrwL8AAAAAAAAAABDyfl2+asW/AAAAAGDrwL8AAAAAAAAAABDyfl2+asW/AAAAQFvrwD8AAAAAAAAAANBl7iwW7MM/AAAAQFvrwD8AAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAAAAgGxaK78AAAAAh1mxvgAAAACHWbG+7VqHPmxaK7/tWoc+"/>
-     <Polygon GUID="0026800c-56d9-7b9e-14d2-a02cf9f51f57" BinaryData="BAAAABDyfl2+asW/AAAAAGDrwL8AAAAAAAAAAAAAAABIcOC/AAAAAGDrwL8AAAAAAAAAAAAAAABIcOC/AAAAQFvrwD8AAAAAAAAAABDyfl2+asW/AAAAQFvrwD8AAAAAAAAAAAQAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAA8L8AAAAAAAAAgIdZsb4AAAAAAAAAAAAAAAAAAAAA7VqHPodZsb7tWoc+"/>
-     <SmoothingGroups />
-     <SemiSharpCrease />
-     <UVIslands />
-    </Brush>
-    <Mesh Version="2" BinaryData="AAAAAAAAAAAoAAAAKAAAAFQAAAAoAAAAAQAAAECCA7/aWgc+AAAAAECCA78AWwe+AAAAAECCA78AWwe+S9zFPUCCA7/aWgc+S9zFPXaCAz8AWwe+AAAAAHaCAz/aWgc+AAAAAHaCAz/aWgc+S9zFPXaCAz8AWwe+S9zFPXaCAz/aWgc+AAAAALFgHz7aWgc+AAAAALFgHz7aWgc+S9zFPXaCAz/aWgc+S9zFPfNVK77aWgc+S9zFPfNVK77aWgc+AAAAAECCA7/aWgc+S9zFPUCCA7/aWgc+AAAAAHaCAz/aWgc+S9zFPbFgHz7aWgc+S9zFPbFgHz4AWwe+S9zFPXaCAz8AWwe+S9zFPfNVK74AWwe+S9zFPfNVK77aWgc+S9zFPUCCA78AWwe+S9zFPUCCA7/aWgc+S9zFPXaCAz8AWwe+S9zFPbFgHz4AWwe+S9zFPbFgHz4AWwe+AAAAAHaCAz8AWwe+AAAAAPNVK74AWwe+AAAAAPNVK74AWwe+S9zFPUCCA78AWwe+AAAAAECCA78AWwe+S9zFPXaCAz8AWwe+AAAAALFgHz4AWwe+AAAAALFgHz7aWgc+AAAAAHaCAz/aWgc+AAAAAPNVK77aWgc+AAAAAPNVK74AWwe+AAAAAECCA7/aWgc+AAAAAECCA78AWwe+AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAvwAAAIAAAACAAACAv+1ah74AAAAAAAAAAAAAAAAAAAAAS9zFve1ah75L3MW9AAAAAAAAAADtWoc+AAAAAO1ahz5L3MW9AAAAAEvcxb1bgoO/AAAAAGxaK78AAAAAbForv0vcxb1bgoO/S9zFvYdZsb5L3MW9h1mxvgAAAAAAAAAAS9zFvQAAAAAAAAAAW4KDP+1ah75sWis/7VqHvmxaKz8AAAAAW4KDPwAAAACHWbE+AAAAAIdZsT7tWoe+AAAAAAAAAAAAAAAA7VqHvluCgz9L3MW9bForP0vcxb1sWis/AAAAAFuCgz8AAAAAh1mxPgAAAACHWbE+S9zFvQAAAAAAAAAAAAAAAEvcxb1bgoO/AAAAAGxaK78AAAAAbForv+1ahz5bgoO/7VqHPodZsb7tWoc+h1mxvgAAAAAAAAAA7VqHPgAAAAAAAAAAAAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsACQAMAAoACQANAAwADQAOAAwADQAPAA4AEAARABIAEAASABMAEQAUABIAEQAVABQAFQAWABQAFQAXABYAGAAZABoAGAAaABsAGQAcABoAGQAdABwAHQAeABwAHQAfAB4AIAAhACIAIAAiACMAIQAkACIAIQAlACQAJQAmACQAJQAnACYAAAABgAAAAYAAAAAAAYABgAAAAYAAAAGAAAAAAAGAAYAAAAGAAAABgAAAAAABgAGAAAABgAAAAYAAAAAAAYABgAAA/38AAAGAAAAAAAGAAYAAAP9/AAABgAAAAAABgAGAAAD/fwAAAYAAAAAAAYABgAAA/38AAAGAAAAAAAGAAYACgAAAAAABgAAAAAACgAGAAYAAAAAAAYAAAAAAAYABgAKAAAAAAAGAAAAAAAKAAYABgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAoABgAGAAAAAAAGAAAAAAAKAAYACgAAAAAABgAAAAAABgAGAAYAAAAAAAYAAAAAAAoABgP5/AAAAAAGAAAACgAAAAYD+fwAAAAABgAAAAYAAAAGA/n8AAAAAAYAAAAGAAAABgP5/AAAAAAGAAAACgAAAAYD+fwAAAAABgAAAAoAAAAGA/n8AAAAAAYAAAAKAAAABgP5/AAAAAAGAAAABgAAAAYD+fwAAAAABgAAAAYAAAAGA/n8AAAAAAYAAAAAAAoABgP9/AAAAAAGAAAAAAAGAAYD+fwAAAAABgAAAAAACgAGA/38AAAAAAYAAAAAAAYABgP9/AAAAAAGAAAAAAAKAAYD/fwAAAAABgAAAAAACgAGA/n8AAAAAAYAAAAAAAYABgP9/AAAAAAGAAAAAAAKAAYACgAAAAAD/fwAA/n8AAP9/AoAAAAAA/38AAP9/AAD/fwKAAAAAAP9/AAD/fwAA/38CgAAAAAD/fwAA/n8AAP9/AoAAAAAA/38AAP5/AAD/fwKAAAAAAP9/AAD+fwAA/38CgAAAAAD/fwAA/38AAP9/AoAAAAAA/38AAP9/AAD/fwAA2DUAAJi0S9xFPdtaCD8AAAAAAAAAAFQAAAAAAAAAKAAAAAAAAAAAAAAAABAAAA=="/>
-   </Object>
-   <Object Type="SplineDistributor" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="4710e895-a444-0fc8-5d2b-e497ef24691b" Name="SplineDistributor-1" Pos="63.574543,57.402607,33.327045" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="6717542" UseCustomLevelLayerColor="0" MinSpec="0" Geometry="Objects/chainTankTest.cgf" StepSize="0.35" Follow="1" ZAngle="90" OutdoorOnly="0" CastShadowMaps="1" RainOccluder="1" SupportSecondVisarea="0" Hideable="0" LodRatio="100" ViewDistRatio="100" NotTriangulate="0" NoStaticDecals="0" RecvWind="0" Occluder="0">
-    <Points>
-     <Point Pos="0,0,0" Back="0,0,0" Forw="0,-0.073729686,-0.28262481" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-0.42470169,-0.76644897" Back="0,-0.16505036,-0.63268042" Forw="0,-0.95005983,-1.0371058" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-2.1631546,-1.1144257" Back="0,-1.5748951,-1.0577947" Forw="0,-2.7489619,-1.1708206" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-3.928669,-1.1037712" Back="0,-3.3413689,-1.1415744" Forw="0,-4.3815308,-1.0746216" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-5.2767754,-0.91400909" Back="0,-4.8696918,-1.114549" Forw="0,-5.4545507,-0.82643241" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-5.4611969,-0.34880829" Back="0,-5.3777928,-0.52857894" Forw="0,-5.5817471,-0.088971883" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-5.8856468,0.39836502" Back="0,-5.8954573,0.11209407" Forw="0,-5.8770928,0.64796549" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-5.415596,0.98181534" Back="0,-5.6216083,0.84063268" Forw="0,-5.2377028,1.1037276" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-4.790554,1.1488457" Back="0,-5.0047579,1.1238395" Forw="0,-4.4822659,1.1848352" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-3.8595238,1.1634712" Back="0,-4.1698694,1.168201" Forw="0,-3.2632942,1.1543845" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-2.0715065,1.1074066" Back="0,-2.6674476,1.1280512" Forw="0,-1.5611595,1.0897272" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-0.54067993,1.0485001" Back="0,-1.008549,1.2531102" Forw="0,-0.25115722,0.92188501" Angle="0" Width="0" IsDefaultWidth="1"/>
-     <Point Pos="0,-0.063598633,0.22930145" Back="0,-0.14619881,0.5343129" Forw="0,-0.063598633,0.22930145" Angle="0" Width="0" IsDefaultWidth="1"/>
-    </Points>
-   </Object>
-   <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="5bb1f109-6f8d-fb4b-8daf-16a1b31a655d" Name="Entity-12" Pos="65.047745,48.665462,31.999756" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
+   <Object Type="EntityWithComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="5bb1f109-6f8d-fb4b-8daf-16a1b31a655d" Name="Entity-12" Pos="68.256294,53.597458,32.739326" Rotate="1,0,0,0" Scale="1,1,1" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
     <Properties />
     <Components>
      <Component CryXmlVersion="2" TypeGUID="067cd275-c9cc-46ae-8338-3316999dd913" TypeName="CVendingMachine" GUID="6928e746-13d5-8ed5-2453-6dc5284bdb20" Name="" UserAdded="true">
@@ -413,6 +341,42 @@
      </Component>
      <Component CryXmlVersion="2" TypeGUID="183e3c84-2e08-4506-95fa-b362f7e735e9" TypeName="Cry::DefaultComponents::CInputComponent" GUID="9b319ff5-1d2c-6a8b-e56c-606ba9b388ed" Name="" UserAdded="false">
       <properties />
+     </Component>
+    </Components>
+   </Object>
+   <Object Type="Brush" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="21d21406-f890-59da-b7d9-a066be528a66" Name="vending-1" Pos="68.220032,54.308578,31.999756" Rotate="0.9986555,0,0,0.051838629" Scale="2.2200003,2.2200003,2.22" ColorRGB="16777215" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" Prefab="Objects/interaction items/vending/vending.cgf" IgnoreVisareas="0" CastShadowMaps="1" GIMode="1" RainOccluder="1" SupportSecondVisarea="0" DynamicDistanceShadows="0" Hideable="0" LodRatio="100" ViewDistRatio="100" ExcludeFromNavigation="0" NoDynamicWater="0" AIRadius="-1" NoStaticDecals="0" RecvWind="0" Occluder="0" DrawLast="0" ShadowLodBias="0" IgnoreTerrainLayerBlend="0" IgnoreDecalBlend="0" RndFlags="180060000408">
+    <CollisionFiltering />
+   </Object>
+   <Object Type="EntityWithStaticMeshComponent" Layer="Main" LayerGUID="1dd3a559-e494-4742-a501-7dab4afbbf72" Id="755e051b-03f0-bbbc-1a4c-d3d232c6b27d" Name="Entity-14" Pos="68.200706,54.345375,32.945744" Rotate="0.99856985,0,0,0.053462766" Scale="1.4119788,0.71643084,2.2429805" ColorRGB="65535" UseCustomLevelLayerColor="0" MinSpec="0" MatLayersMask="0" OutdoorOnly="0" CastShadow="1" CastShadowMinspec="1" DynamicDistanceShadows="0" GIMode="0" LodRatio="100" ViewDistRatio="100" HiddenInGame="0" RecvWind="0" RenderNearest="0" NoStaticDecals="0" EntityClass="Entity" HasEntity="1">
+    <Properties />
+    <Components>
+     <Component CryXmlVersion="2" TypeGUID="6ddd0033-6aaa-4b71-b8ea-108258205e29" TypeName="Cry::DefaultComponents::CStaticMeshComponent" GUID="7de2fc03-de39-d745-1124-ad4a19265f58" Name="" UserAdded="true">
+      <Transform>
+       <translation>
+        <position>
+         <element element="0"/>
+         <element element="0"/>
+         <element element="0"/>
+        </position>
+       </translation>
+       <rotation x="0" y="-0" z="0"/>
+       <scale>
+        <element element="1"/>
+        <element element="1"/>
+        <element element="1"/>
+       </scale>
+      </Transform>
+      <properties Type="RenderAndCollider" FilePath="%ENGINE%/EngineAssets/Objects/primitive_cube.cgf" Material="%ENGINE%/EngineAssets/Objects/editorprimitive">
+       <IEditorEntityComponent />
+       <Render ShadowSpec="Low" IgnoreVisArea="false" IgnoreTerrainLayerBlend="false" IgnoreDecalBlend="false" ViewDistRatio="100" LODDistance="100" GIMode="None"/>
+       <Physics WeightType="EWeightType::Mass" Density="9.9999997e-05" Mass="10"/>
+      </properties>
+     </Component>
+     <Component CryXmlVersion="2" TypeGUID="912c6ce8-56f7-4ffa-9134-f98d4e307bd6" TypeName="Cry::DefaultComponents::CRigidBodyComponent" GUID="ee87897f-8b95-4a17-3959-737b7424f146" Name="" UserAdded="true">
+      <properties Networked="false" EnabledByDefault="true" Resting="false" Type="Static" SendCollisionSignal="false">
+       <Buoyancy Damping="0" Density="1000" Resistance="1000"/>
+       <Simulation MaxTimeStep="0.02" SleepSpeed="0.039999999" Damping="0"/>
+      </properties>
      </Component>
     </Components>
    </Object>
