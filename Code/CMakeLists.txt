@@ -34,6 +34,8 @@ add_sources("Components_uber.cpp"
 		"Components/Player.h"
 		"Components/SpawnPoint.h"
 		"Components/VendingMachine.h"
+        "Components/items/Soda.cpp"
+        "Components/items/Soda.h" 
 )
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/CVarOverrides.h")

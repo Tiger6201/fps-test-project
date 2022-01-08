@@ -14,7 +14,8 @@
 #include <CryCore/StaticInstanceList.h>
 #include <CryNetwork/Rmi.h>
 #include <CryExtension/CryGUID.h>
-
+#include <DefaultComponents/Geometry/StaticMeshComponent.h>
+#include "items/Soda.h"
 
 static void RegisterCVendingMachine(Schematyc::IEnvRegistrar& registrar)
 {
@@ -76,9 +77,10 @@ bool CVendingMachine::spawnEntity(RemoteSpawnEntityParams&& params, INetChannel*
 
 	if (IEntity* pEntity = gEnv->pEntitySystem->SpawnEntity(spawnParams))
 	{
+
 		pEntity->SetPos(GetEntity()->GetWorldPos());
-		pEntity->LoadGeometry(0, "Objects/props/soda/soda_can_a.cgf");
-		pEntity->GetOrCreateComponent<Cry::DefaultComponents::CRigidBodyComponent>();
+		pEntity->SetRotation(Quat::CreateRotationXYZ(Ang3 { 0, 80, 0 }));
+		pEntity->CreateComponent<CSoda>();
 		pEntity->GetNetEntity()->BindToNetwork();
 	}
 
