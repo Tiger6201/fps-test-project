@@ -8,6 +8,7 @@
 #include <CrySchematyc/Env/Elements/EnvComponent.h>
 #include <CryCore/StaticInstanceList.h>
 #include <CryNetwork/Rmi.h>
+#include "Use.h"
 
 #define MOUSE_DELTA_TRESHOLD 0.0001f
 
@@ -26,6 +27,7 @@ namespace
 
 void CPlayerComponent::Initialize()
 {
+	m_pEntity->GetOrCreateComponent<CUse>();
 	// The character controller is responsible for maintaining player physics
 	m_pCharacterController = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
 	// Offset the default character controller up by one unit
@@ -196,6 +198,7 @@ void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
 		{
 			// Update the camera component offset
 			UpdateCamera(frameTime);
+			IsInteractableEntity();
 		}
 	}
 	break;
@@ -509,7 +512,7 @@ void CPlayerComponent::aimpose() {
 
 	if (IsLocalClient())
 	{
-		m_targetAimpose = getAimTarget();
+		m_targetAimpose = RayCast().pt;
 	}
 
 	if (pPoseBlenderAim)
@@ -525,28 +528,25 @@ void CPlayerComponent::aimpose() {
 
 }
 
-Vec3 CPlayerComponent::getAimTarget()
+ray_hit CPlayerComponent::RayCast(const float searchRange)
 {
 	const float halfRenderWidth = static_cast<float>(gEnv->pRenderer->GetWidth()) * 0.5f;
 	const float halfRenderHeight = static_cast<float>(gEnv->pRenderer->GetHeight()) * 0.5f;
-
-	const float searchRange = 50.f;
-
 	Vec3 cameraCenterNear, cameraCenterFar;
 	gEnv->pRenderer->UnProjectFromScreen(halfRenderWidth, halfRenderHeight, 0, &cameraCenterNear.x, &cameraCenterNear.y, &cameraCenterNear.z);
 	gEnv->pRenderer->UnProjectFromScreen(halfRenderWidth, halfRenderHeight, 1, &cameraCenterFar.x, &cameraCenterFar.y, &cameraCenterFar.z);
 
 	const Vec3 searchDirection = (cameraCenterFar - cameraCenterNear).GetNormalized() * searchRange;
 
-	std::array<ray_hit, 1> hits;
+	ray_hit hit;
 
 	const uint32 queryFlags = ent_all;
 
 	const uint32 rayFlags = rwi_stop_at_pierceable | rwi_ignore_noncolliding;
 
-	const int numHits = gEnv->pPhysicalWorld->RayWorldIntersection(cameraCenterNear, searchDirection, queryFlags, rayFlags, hits.data(), hits.max_size());
+	const int numHits = gEnv->pPhysicalWorld->RayWorldIntersection(cameraCenterNear, searchDirection, queryFlags, rayFlags, &hit, 1);
 
-	return hits[0].pt;
+	return hit;
 }
 
 IAttachment* CPlayerComponent::getPlayerFlashlightAttachment() {
@@ -558,4 +558,19 @@ IAttachment* CPlayerComponent::getPlayerFlashlightAttachment() {
 	}
 
 	return nullptr;
+}
+
+void CPlayerComponent::IsInteractableEntity() {
+	if (IPhysicalEntity* pHitEntity = RayCast(10).pCollider) {
+		IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(pHitEntity);
+
+		if (pEntity) {
+		    CUse* UseComponent = pEntity->GetComponent<CUse>();
+
+			if (UseComponent) {
+				
+			}
+		}
+
+	}
 }

@@ -112,8 +112,7 @@ public:
 	bool IsLocalClient() const { return (m_pEntity->GetFlags() & ENTITY_FLAG_LOCAL_PLAYER) != 0; }
 
 	void aimpose();
-	Vec3 getAimTarget();
-	ICharacterInstance* getCharacter();
+	ray_hit RayCast(const float searchRange = 50.f);
 protected:
 	void Revive(const Matrix34& transform);
 
@@ -127,6 +126,7 @@ protected:
 
 	// Called when this entity becomes the local player, to create client specific setup such as the Camera
 	void InitializeLocalPlayer();
+	void IsInteractableEntity();
 
 	ISkeletonAnim* SkeletonAnim;
 	ISkeletonPose* SkeletonPose;
