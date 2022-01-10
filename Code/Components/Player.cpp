@@ -8,7 +8,6 @@
 #include <CrySchematyc/Env/Elements/EnvComponent.h>
 #include <CryCore/StaticInstanceList.h>
 #include <CryNetwork/Rmi.h>
-#include "Use.h"
 
 #define MOUSE_DELTA_TRESHOLD 0.0001f
 
@@ -119,6 +118,20 @@ void CPlayerComponent::InitializeLocalPlayer()
 		});
 
 	m_pInputComponent->BindAction("player", "turnOnOffFlashLight", eAID_KeyboardMouse, EKeyId::eKI_L);
+
+
+
+	//Use
+	m_pInputComponent->RegisterAction("player", "Use", [this](int activationMode, float value) {
+		if (activationMode == 2) {
+			if (m_Use) {
+				m_Use->Use();
+			}
+		}
+
+		});
+
+	m_pInputComponent->BindAction("player", "useVendingMachine", eAID_KeyboardMouse, EKeyId::eKI_F);
 
 
 	// Register the shoot action
@@ -568,9 +581,12 @@ void CPlayerComponent::IsInteractableEntity() {
 		    CUse* UseComponent = pEntity->GetComponent<CUse>();
 
 			if (UseComponent) {
-				
+				m_Use = UseComponent;
+				return;
 			}
 		}
 
 	}
+
+	m_Use = nullptr;
 }

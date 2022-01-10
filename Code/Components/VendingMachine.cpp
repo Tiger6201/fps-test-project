@@ -34,7 +34,7 @@ void CVendingMachine::Initialize()
 	m_pInputComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CInputComponent>();
 	m_pInputComponent->RegisterAction("player", "useVendingMachine", [this](int activationMode, float value) {
 		if (activationMode == 2) {
-			SRmi<RMI_WRAP(&CVendingMachine::spawnEntity)>::InvokeOnServer(this, RemoteSpawnEntityParams{});
+			UseVendingMachine();
 		}
 
 		});
@@ -85,4 +85,8 @@ bool CVendingMachine::spawnEntity(RemoteSpawnEntityParams&& params, INetChannel*
 	}
 
 	return true;
+}
+
+void CVendingMachine::UseVendingMachine() {
+	SRmi<RMI_WRAP(&CVendingMachine::spawnEntity)>::InvokeOnServer(this, RemoteSpawnEntityParams{});
 }

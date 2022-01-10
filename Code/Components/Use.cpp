@@ -30,3 +30,10 @@ void CUse::Initialize()
 
 CRY_STATIC_AUTO_REGISTER_FUNCTION(&RegisterCUse)
 
+
+
+
+void CUse::Use()
+{
+
+}

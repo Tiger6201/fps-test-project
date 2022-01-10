@@ -15,6 +15,7 @@
 #include <DefaultComponents/Input/InputComponent.h>
 #include <DefaultComponents/Audio/ListenerComponent.h>
 #include "Flashlight.h"
+#include "Use.h"
 
 ////////////////////////////////////////////////////////
 // Represents a player participating in gameplay
@@ -133,7 +134,7 @@ protected:
 	IAnimationPoseBlenderDir* pPoseBlenderAim;
 	Vec3 m_targetAimpose{ 0, 0, 0 };
 	CFlashlight* m_flashLight = nullptr;
-	
+	CUse* m_Use = nullptr;
 	// Start remote method declarations
 protected:
 	// Parameters to be passed to the RemoteReviveOnClient function

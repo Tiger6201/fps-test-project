@@ -13,6 +13,7 @@ protected:
 public:
 	CUse() = default;
 	virtual ~CUse() = default;
+	void Use();
 
 	virtual void Initialize() override;
 

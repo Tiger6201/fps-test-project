@@ -32,6 +32,7 @@ public:
 	virtual Cry::Entity::EventFlags GetEventMask() const override;
 	virtual bool NetSerialize(TSerialize ser, EEntityAspects aspect, uint8 profile, int flags) override;
 	virtual NetworkAspectType GetNetSerializeAspectMask() const override { return vendingMachineAspect; }
+	void UseVendingMachine();
 
 	static void ReflectType(Schematyc::CTypeDesc<CVendingMachine>& desc)
 	{
