@@ -2,6 +2,7 @@
 
 #include <CryEntitySystem/IEntitySystem.h>
 #include <DefaultComponents/Input/InputComponent.h>
+#include <DefaultComponents/Geometry/StaticMeshComponent.h>
 
 class CVendingMachine final : public IEntityComponent
 {
@@ -25,6 +26,7 @@ protected:
 public:
 	CVendingMachine() = default;
 	virtual ~CVendingMachine() = default;
+	Cry::DefaultComponents::CStaticMeshComponent* m_pStaticMeshComponent;
 	static constexpr EEntityAspects vendingMachineAspect = eEA_GameClientA;
 	bool spawnEntity(RemoteSpawnEntityParams&& params, INetChannel* pNetChannel);
 	virtual void ProcessEvent(const SEntityEvent& event) override;

@@ -1,4 +1,4 @@
-<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1641681532">
+<AssetMetadata version="0" type="Level" guid="984fcd77-e594-2b34-fbf5-414a47e0d684" source="" timestamp="1642022559">
  <Files>
   <File path="example/example.level"/>
  </Files>
@@ -84,6 +84,9 @@
   <Path>editor/resourcecache/objects/characters/samplecharacter/mcg_ddna.dds</Path>
   <Path>editor/resourcecache/objects/characters/samplecharacter/mcg_diff.dds</Path>
   <Path>editor/resourcecache/objects/characters/samplecharacter/mcg_spec.dds</Path>
+  <Path>editor/resourcecache/objects/interaction items/vending/lowpoly_standardmaterial1_basecolor.dds</Path>
+  <Path>editor/resourcecache/objects/interaction items/vending/lowpoly_standardmaterial_basecolor.dds</Path>
+  <Path>editor/resourcecache/objects/interaction items/vending/lowpoly_standardmaterial_normal.dds</Path>
   <Path>engineassets/materials/water/ocean_default.mtl</Path>
   <Path>engineassets/textures/flares/default-flare.dds</Path>
   <Path usageCount="1">libs/environmentpresets/example.env</Path>
@@ -101,16 +104,13 @@
   <Path>objects/flashlight/textures/flash_light_ddna.dds</Path>
   <Path>objects/flashlight/textures/flash_light_diff.dds</Path>
   <Path>objects/flashlight/textures/metal_detail.dds</Path>
+  <Path>objects/interaction items/vending/lowpoly_standardmaterial1_basecolor.dds</Path>
+  <Path>objects/interaction items/vending/lowpoly_standardmaterial_basecolor.dds</Path>
+  <Path>objects/interaction items/vending/lowpoly_standardmaterial_normal.dds</Path>
   <Path>objects/interaction items/vending/vending.cgf</Path>
   <Path>objects/interaction items/vending/vending.mtl</Path>
-  <Path>objects/props/soda/soda_can_a.cgf</Path>
-  <Path>objects/props/soda/soda_can_a.mtl</Path>
-  <Path>objects/props/soda/textures/soda_can_ddna.dds</Path>
-  <Path>objects/props/soda/textures/soda_can_diff.dds</Path>
-  <Path>objects/props/soda/textures/soda_can_spec.dds</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.cgf</Path>
   <Path>objects/weapons/sampleweapon/defaultweapon.mtl</Path>
-  <Path>scripts/ai/factions.xml</Path>
   <Path>textures/lights/lens_flares/circular_bokeh_blurry.dds</Path>
   <Path>textures/lights/lens_flares/element_smoke.dds</Path>
   <Path>textures/lights/lens_flares/ghost_a_grey.dds</Path>

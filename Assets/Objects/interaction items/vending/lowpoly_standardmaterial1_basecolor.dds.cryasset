@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="17e0eed6-adb7-4d2c-8a20-12081eb41d8b" source="lowpoly_standardmaterial1_basecolor.tif">
+ <Files>
+  <File path="lowpoly_standardmaterial1_basecolor.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">2048</Detail>
+  <Detail name="height">2048</Detail>
+  <Detail name="mipCount">10</Detail>
+ </Details>
+</AssetMetadata>

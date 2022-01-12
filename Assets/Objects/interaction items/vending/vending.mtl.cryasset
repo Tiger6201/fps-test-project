@@ -1,13 +1,14 @@
-<AssetMetadata version="0" type="Material" guid="3633f351-94cf-a713-50fc-d873f5992c83" source="" timestamp="1641507964">
+<AssetMetadata version="0" type="Material" guid="3633f351-94cf-a713-50fc-d873f5992c83" source="" timestamp="1642018441">
  <Files>
   <File path="vending.mtl"/>
  </Files>
  <Details>
   <Detail name="subMaterialCount">2</Detail>
-  <Detail name="textureCount">2</Detail>
+  <Detail name="textureCount">3</Detail>
  </Details>
  <Dependencies>
-  <Path usageCount="2">%ENGINE%/EngineAssets/Textures/white.dds</Path>
-  <Path usageCount="2">%ENGINE%/EngineAssets/Textures/white_ddn.dds</Path>
+  <Path usageCount="1">./lowpoly_standardmaterial_basecolor.dds</Path>
+  <Path usageCount="1">./lowpoly_standardmaterial_normal.dds</Path>
+  <Path usageCount="1">./lowpoly_standardmaterial1_basecolor.dds</Path>
  </Dependencies>
 </AssetMetadata>

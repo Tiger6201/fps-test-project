@@ -1,16 +1,21 @@
 <Material MtlFlags="524544" vertModifType="0">
  <SubMaterials>
-  <Material Name="Standardmaterial" MtlFlags="524416" Shader="Illum" GenMask="0" StringGenMask="" SurfaceType="" MatTemplate="" Diffuse="1,1,1" Specular="0.046964195,0.046964195,0.046964195" Opacity="1" Shininess="255" CloakAmount="0" vertModifType="0" LayerAct="1">
+  <Material Name="Standardmaterial" MtlFlags="524416" Shader="Illum" GenMask="4000000000020" StringGenMask="%NORMAL_MAP%SUBSURFACE_SCATTERING" SurfaceType="mat_metal" MatTemplate="" Diffuse="1,1,1" Specular="0.046665095,0.046665095,0.046665095" Opacity="1" Shininess="255" CloakAmount="0" vertModifType="0" LayerAct="1">
    <Textures>
-    <Texture Map="Diffuse" File="%ENGINE%/EngineAssets/Textures/white.dds"/>
-    <Texture Map="Bumpmap" File="%ENGINE%/EngineAssets/Textures/white_ddn.dds"/>
+    <Texture Map="Diffuse" File="./lowpoly_standardmaterial_basecolor.dds">
+     <TexMod TexMod_RotateType="0" TexMod_TexGenType="0" TexMod_bTexGenProjected="0"/>
+    </Texture>
+    <Texture Map="Bumpmap" File="./lowpoly_standardmaterial_normal.dds">
+     <TexMod TexMod_RotateType="0" TexMod_TexGenType="0" TexMod_bTexGenProjected="0"/>
+    </Texture>
    </Textures>
+   <PublicParams EmittanceMapGamma="1" SSSIndex="0"/>
   </Material>
-  <Material Name="&lt;unassigned&gt;" MtlFlags="524416" Shader="Illum" GenMask="0" StringGenMask="" SurfaceType="" MatTemplate="" Diffuse="1,1,1" Specular="0.046964195,0.046964195,0.046964195" Opacity="1" Shininess="255" CloakAmount="0" vertModifType="0" LayerAct="1">
+  <Material Name="Sub-Material-2" MtlFlags="524420" Shader="Illum" GenMask="4000000000000" StringGenMask="%SUBSURFACE_SCATTERING" SurfaceType="" MatTemplate="" Diffuse="1,1,1" Opacity="1" Shininess="9.9450016" CloakAmount="0" vertModifType="0" LayerAct="1">
    <Textures>
-    <Texture Map="Diffuse" File="%ENGINE%/EngineAssets/Textures/white.dds"/>
-    <Texture Map="Bumpmap" File="%ENGINE%/EngineAssets/Textures/white_ddn.dds"/>
+    <Texture Map="Diffuse" File="./lowpoly_standardmaterial1_basecolor.dds"/>
    </Textures>
+   <PublicParams EmittanceMapGamma="1" SSSIndex="0"/>
   </Material>
  </SubMaterials>
  <PublicParams EmittanceMapGamma="1" SSSIndex="0"/>

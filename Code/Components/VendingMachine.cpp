@@ -14,7 +14,6 @@
 #include <CryCore/StaticInstanceList.h>
 #include <CryNetwork/Rmi.h>
 #include <CryExtension/CryGUID.h>
-#include <DefaultComponents/Geometry/StaticMeshComponent.h>
 #include "items/Soda.h"
 
 static void RegisterCVendingMachine(Schematyc::IEnvRegistrar& registrar)
@@ -28,6 +27,11 @@ static void RegisterCVendingMachine(Schematyc::IEnvRegistrar& registrar)
 
 void CVendingMachine::Initialize()
 {
+	GetEntity()->SetScale({ 2.22,2.22, 2.22 });
+	m_pStaticMeshComponent = GetEntity()->GetOrCreateComponent<Cry::DefaultComponents::CStaticMeshComponent>();
+	m_pStaticMeshComponent->SetFilePath("Objects/interaction items/vending/vending.cgf");
+	m_pStaticMeshComponent->LoadFromDisk();
+	m_pStaticMeshComponent->ResetObject();
 	SRmi<RMI_WRAP(&CVendingMachine::spawnEntity)>::Register(this, eRAT_NoAttach, false, eNRT_ReliableOrdered);
 
 	m_pEntity->GetNetEntity()->BindToNetwork();
@@ -78,8 +82,9 @@ bool CVendingMachine::spawnEntity(RemoteSpawnEntityParams&& params, INetChannel*
 	if (IEntity* pEntity = gEnv->pEntitySystem->SpawnEntity(spawnParams))
 	{
 
-		pEntity->SetPos(GetEntity()->GetWorldPos());
+		pEntity->SetPos(GetEntity()->GetWorldPos() + Vec3{ -0.111, -0.67, 0.6216 });
 		pEntity->SetRotation(Quat::CreateRotationXYZ(Ang3 { 0, 80, 0 }));
+
 		pEntity->CreateComponent<CSoda>();
 		pEntity->GetNetEntity()->BindToNetwork();
 	}
