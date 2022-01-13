@@ -119,6 +119,18 @@ void CPlayerComponent::InitializeLocalPlayer()
 
 	m_pInputComponent->BindAction("player", "turnOnOffFlashLight", eAID_KeyboardMouse, EKeyId::eKI_L);
 
+	m_pInputComponent->RegisterAction("player", "sprint", [this](int activationMode, float value) {
+		if (activationMode == 2) {
+			m_Sprint = false;
+		}
+		else {
+			m_Sprint = true;
+		}
+
+		});
+
+	m_pInputComponent->BindAction("player", "sprint", eAID_KeyboardMouse, EKeyId::eKI_LShift);
+
 
 
 	//Use
@@ -257,7 +269,7 @@ bool CPlayerComponent::NetSerialize(TSerialize ser, EEntityAspects aspect, uint8
 		ser.Value("m_horizontalAngularVelocity", m_horizontalAngularVelocity, 'frad');
 		ser.Value("m_averagedHorizontalAngularVelocity", m_averagedHorizontalAngularVelocity, 'frad');
 		ser.Value("flashlight", m_flashLight->m_lightOn, 'bool');
-
+		ser.Value("m_Sprint", m_Sprint, 'bool');
 		ser.EndGroup();
 	}
 
@@ -272,8 +284,15 @@ void CPlayerComponent::UpdateMovementRequest(float frameTime)
 
 	Vec3 velocity = ZERO;
 
-	const float moveSpeed = 20.5f;
+	float moveSpeed = 20.5f;
 
+	if (m_Sprint) {
+		moveSpeed += 15;
+		m_walkFragmentId = m_pAnimationComponent->GetFragmentId("RunNoGun");
+	}
+	else {
+		m_walkFragmentId = m_pAnimationComponent->GetFragmentId("WalkNoGun");
+	}
 	if (m_inputFlags & EInputFlag::MoveLeft)
 	{
 		velocity.x -= moveSpeed * frameTime;

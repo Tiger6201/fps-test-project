@@ -4,5 +4,6 @@
   <Tag name="Walk" subTagDef="Animations/Mannequin/ADB/PlayerTags.xml"/>
   <Tag name="IdleNoGun"/>
   <Tag name="WalkNoGun" subTagDef="Animations/Mannequin/ADB/PlayerTags.xml"/>
+  <Tag name="RunNoGun" subTagDef="Animations/Mannequin/ADB/PlayerTags.xml"/>
  </Tags>
 </TagDefinition>

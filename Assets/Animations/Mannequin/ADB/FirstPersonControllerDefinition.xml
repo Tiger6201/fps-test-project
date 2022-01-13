@@ -6,6 +6,7 @@
   <Walk scopes="FirstPerson+ThirdPerson"/>
   <IdleNoGun scopes="FirstPerson+ThirdPerson" flags="Persistent+AutoReinstall"/>
   <WalkNoGun scopes="FirstPerson+ThirdPerson"/>
+  <RunNoGun scopes="FirstPerson+ThirdPerson"/>
  </FragmentDefs>
  <ScopeContextDefs>
   <FirstPersonCharacter />

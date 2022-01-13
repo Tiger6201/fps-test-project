@@ -68,5 +68,17 @@
     </AnimLayer>
    </Fragment>
   </WalkNoGun>
+  <RunNoGun>
+   <Fragment BlendOutDuration="0.2" Tags="">
+    <AnimLayer>
+     <Blend ExitTime="0" StartTime="0" Duration="0.2"/>
+     <Animation name="2DONE-BSpace_MoveStrafeRun" flags="Loop" speed="1.2"/>
+    </AnimLayer>
+    <AnimLayer>
+     <Blend ExitTime="0" StartTime="0" Duration="0.2"/>
+     <Animation name="aimpose_01" flags="Loop+ForceSkelUpdate"/>
+    </AnimLayer>
+   </Fragment>
+  </RunNoGun>
  </FragmentList>
 </AnimDB>

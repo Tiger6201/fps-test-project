@@ -135,6 +135,7 @@ protected:
 	Vec3 m_targetAimpose{ 0, 0, 0 };
 	CFlashlight* m_flashLight = nullptr;
 	CUse* m_Use = nullptr;
+	bool m_Sprint = false;
 	// Start remote method declarations
 protected:
 	// Parameters to be passed to the RemoteReviveOnClient function
