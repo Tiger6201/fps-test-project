@@ -26,7 +26,8 @@ protected:
 public:
 	CVendingMachine() = default;
 	virtual ~CVendingMachine() = default;
-	Cry::DefaultComponents::CStaticMeshComponent* m_pStaticMeshComponent;
+	Cry::DefaultComponents::CStaticMeshComponent* m_pStaticMeshComponent = nullptr;
+	Cry::DefaultComponents::CRigidBodyComponent* m_pRigidBodyComponent = nullptr;
 	static constexpr EEntityAspects vendingMachineAspect = eEA_GameClientA;
 	bool spawnEntity(RemoteSpawnEntityParams&& params, INetChannel* pNetChannel);
 	virtual void ProcessEvent(const SEntityEvent& event) override;

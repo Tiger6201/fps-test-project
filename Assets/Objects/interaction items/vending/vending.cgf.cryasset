@@ -1,14 +1,14 @@
-<AssetMetadata version="0" type="Mesh" guid="c337d7df-10ac-97bf-4fa3-362a8306e5f0" source="lowpoly.FBX" timestamp="1641504348">
+<AssetMetadata version="0" type="Mesh" guid="fd0a3644-21b9-85c5-a69f-ea7bbd1ee449" source="vending.fbx">
  <Files>
   <File path="vending.cgf"/>
  </Files>
  <Details>
-  <Detail name="materialCount">2</Detail>
+  <Detail name="materialCount">4</Detail>
   <Detail name="triangleCount">3344</Detail>
-  <Detail name="vertexCount">3116</Detail>
+  <Detail name="vertexCount">2995</Detail>
   <Detail name="16BitPrecision">false</Detail>
  </Details>
  <Dependencies>
-  <Path usageCount="1">./lowpoly.mtl</Path>
+  <Path usageCount="1">Objects/interaction items/vending/vending.mtl</Path>
  </Dependencies>
 </AssetMetadata>

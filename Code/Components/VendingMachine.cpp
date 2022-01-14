@@ -14,6 +14,7 @@
 #include <CryCore/StaticInstanceList.h>
 #include <CryNetwork/Rmi.h>
 #include <CryExtension/CryGUID.h>
+#include <CryPhysics/physinterface.h>
 #include "items/Soda.h"
 
 static void RegisterCVendingMachine(Schematyc::IEnvRegistrar& registrar)
@@ -27,7 +28,8 @@ static void RegisterCVendingMachine(Schematyc::IEnvRegistrar& registrar)
 
 void CVendingMachine::Initialize()
 {
-	GetEntity()->SetScale({ 2.22,2.22, 2.22 });
+	m_pRigidBodyComponent = GetEntity()->GetOrCreateComponent<Cry::DefaultComponents::CRigidBodyComponent>();
+	m_pRigidBodyComponent->m_type = Cry::DefaultComponents::CRigidBodyComponent::EPhysicalType::Static;
 	m_pStaticMeshComponent = GetEntity()->GetOrCreateComponent<Cry::DefaultComponents::CStaticMeshComponent>();
 	m_pStaticMeshComponent->SetFilePath("Objects/interaction items/vending/vending.cgf");
 	m_pStaticMeshComponent->LoadFromDisk();
@@ -44,6 +46,8 @@ void CVendingMachine::Initialize()
 		});
 
 	m_pInputComponent->BindAction("player", "useVendingMachine", eAID_KeyboardMouse, EKeyId::eKI_F);
+
+	m_pEntity->GetOrCreateComponent<CUse>();
 }
 
 CRY_STATIC_AUTO_REGISTER_FUNCTION(&RegisterCVendingMachine)
