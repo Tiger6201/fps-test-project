@@ -26,7 +26,6 @@ namespace
 
 void CPlayerComponent::Initialize()
 {
-	m_pEntity->GetOrCreateComponent<CUse>();
 	// The character controller is responsible for maintaining player physics
 	m_pCharacterController = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
 	// Offset the default character controller up by one unit
@@ -143,7 +142,7 @@ void CPlayerComponent::InitializeLocalPlayer()
 
 		});
 
-	m_pInputComponent->BindAction("player", "useVendingMachine", eAID_KeyboardMouse, EKeyId::eKI_F);
+	m_pInputComponent->BindAction("player", "Use", eAID_KeyboardMouse, EKeyId::eKI_F);
 
 
 	// Register the shoot action
@@ -593,7 +592,7 @@ IAttachment* CPlayerComponent::getPlayerFlashlightAttachment() {
 }
 
 void CPlayerComponent::IsInteractableEntity() {
-	if (IPhysicalEntity* pHitEntity = RayCast(10).pCollider) {
+	if (IPhysicalEntity* pHitEntity = RayCast(2).pCollider) {
 		IEntity* pEntity = gEnv->pEntitySystem->GetEntityFromPhysics(pHitEntity);
 
 		if (pEntity) {

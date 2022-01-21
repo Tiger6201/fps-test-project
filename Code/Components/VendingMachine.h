@@ -36,6 +36,7 @@ public:
 	virtual bool NetSerialize(TSerialize ser, EEntityAspects aspect, uint8 profile, int flags) override;
 	virtual NetworkAspectType GetNetSerializeAspectMask() const override { return vendingMachineAspect; }
 	void UseVendingMachine();
+	CUse* pUse = nullptr;
 
 	static void ReflectType(Schematyc::CTypeDesc<CVendingMachine>& desc)
 	{

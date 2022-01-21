@@ -14,8 +14,11 @@ public:
 	CUse() = default;
 	virtual ~CUse() = default;
 	void Use();
-
+	bool bUse = false;
+	const char *UIMsg = "use";
 	virtual void Initialize() override;
+	virtual void ProcessEvent(const SEntityEvent& event) override;
+	virtual Cry::Entity::EventFlags GetEventMask() const override;
 
 	static void ReflectType(Schematyc::CTypeDesc<CUse>& desc)
 	{

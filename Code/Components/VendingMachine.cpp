@@ -38,16 +38,10 @@ void CVendingMachine::Initialize()
 
 	m_pEntity->GetNetEntity()->BindToNetwork();
 	m_pInputComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CInputComponent>();
-	m_pInputComponent->RegisterAction("player", "useVendingMachine", [this](int activationMode, float value) {
-		if (activationMode == 2) {
-			UseVendingMachine();
-		}
 
-		});
+	pUse = m_pEntity->GetOrCreateComponent<CUse>();
 
-	m_pInputComponent->BindAction("player", "useVendingMachine", eAID_KeyboardMouse, EKeyId::eKI_F);
-
-	m_pEntity->GetOrCreateComponent<CUse>();
+	
 }
 
 CRY_STATIC_AUTO_REGISTER_FUNCTION(&RegisterCVendingMachine)
@@ -64,7 +58,10 @@ void CVendingMachine::ProcessEvent(const SEntityEvent& event)
 	{
 	case Cry::Entity::EEvent::Update:
 	{
-
+		if (pUse->bUse) {
+			pUse->bUse = false;
+			UseVendingMachine();
+		}
 	}
 	break;
 	}
